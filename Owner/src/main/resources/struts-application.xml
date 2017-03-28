@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN"
+        "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+
+    <package namespace="/application" name="application" extends="default">
+        <interceptors>
+			<interceptor name="permission" class="permissionInterceptor" />
+			<interceptor name="error" class="errorInterceptor"/>
+			<interceptor-stack name="permissionStack">
+				<interceptor-ref name="permission" />
+				<interceptor-ref name="error"/>
+				<interceptor-ref name="defaultStack">
+					<param name="exception.logEnabled">true</param>
+					<param name="exception.logLevel">error</param>
+				</interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="permissionStack" />
+		
+		
+        <action name="user_*" method="{1}" class="userAction"/>
+    </package>
+</struts>

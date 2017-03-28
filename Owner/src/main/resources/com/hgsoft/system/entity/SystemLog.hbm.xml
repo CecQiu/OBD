@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.hgsoft.system.entity.SystemLog" table="tb_SystemLog">
+        <id name="sys_id" type="java.lang.Integer">
+            <column name="sys_id" />
+            <generator class="native" />
+        </id>
+        <property name="logTime" type="java.util.Date">
+            <column name="logTime" length="23" not-null="true" />
+        </property>
+        <property name="logType" type="java.lang.Integer">
+            <column name="logType" not-null="true" />
+        </property>
+        <property name="logData" type="java.lang.String">
+            <column name="logData" length="400" not-null="true" />
+        </property>
+        <property name="coverage" type="java.lang.String">
+            <column name="coverage" length="400" />
+        </property>
+        <property name="remark" type="java.lang.String">
+            <column name="remark" length="400" />
+        </property>
+          <property name="operatorID" type="java.lang.Integer">
+            <column name="operatorID" not-null="true" />
+        </property>
+      </class>
+</hibernate-mapping>

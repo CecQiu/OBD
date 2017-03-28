@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.hgsoft.carowner.entity.CarOilInfo" table="car_oil_info">
+        <id name="oilInfoId" type="java.lang.String">
+            <column name="oilInfoId"/>
+            <generator class="assigned" />
+        </id>
+        <property name="carId" type="java.lang.String">
+            <column name="carId"/>
+        </property>
+        <property name="obdSN" type="java.lang.String">
+            <column name="obdSn"/>
+        </property>
+        <property name="petrolConsumeNum" type="java.lang.String">
+            <column name="petrolConsumeNum"/>
+        </property>
+        <property name="mileageNum" type="java.lang.String">
+            <column name="mileageNum"/>
+        </property>
+        <property name="timeSpanNum" type="java.lang.String">
+            <column name="timeSpanNum"/>
+        </property>
+        <property name="oilInfoTime" type="java.util.Date">
+            <column name="oilInfoTime"/>
+        </property>
+                <property name="type" type="java.lang.Integer">
+            <column name="type"/>
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping  package="com.hgsoft.carowner.entity">
+    <class name="OBDDeviceVersion" table="obd_device_version">
+        <id name="id" type="java.lang.String">
+            <column name="id" not-null="true"/>
+            <generator class="assigned" />
+        </id>
+        <property name="obdSn" type="string">
+            <column name="obdSn" length="50"/>
+        </property>
+        <property name="appVersion" type="string">
+            <column name="appVersion"/>
+        </property>
+        <property name="iapVersion" type="string">
+            <column name="iapVersion"/>
+        </property>
+        <property name="mifiVersion" type="string">
+            <column name="mifiVersion"/>
+        </property>
+        <property name="gpsVersion" type="string">
+            <column name="gpsVersion"/>
+        </property>
+        <property name="mifiHardwareVersion" type="string">
+            <column name="mifiHardwareVersion"/>
+        </property>
+        <property name="createTime" type="java.util.Date">
+            <column name="createTime">
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

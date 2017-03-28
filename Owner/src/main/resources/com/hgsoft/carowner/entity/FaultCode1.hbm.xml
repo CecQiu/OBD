@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-10-29 10:10:28 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping package="com.hgsoft.carowner.entity">
+    <class name="FaultCode1" table="fault_code1">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="dtcId" type="string">
+            <column name="dtc_id" length="10">
+                <comment>&#177;&#224;&#194;&#235;id</comment>
+            </column>
+        </property>
+        <property name="code" type="string">
+            <column name="code" length="5">
+                <comment>&#177;&#224;&#186;&#197;</comment>
+            </column>
+        </property>
+        <property name="level" type="java.lang.Integer">
+            <column name="level">
+                <comment>&#185;&#202;&#213;&#207;&#188;&#182;&#177;&#240;</comment>
+            </column>
+        </property>
+        <property name="faultDesc" type="string">
+            <column name="faultDesc" length="65535">
+                <comment>&#185;&#202;&#213;&#207;&#195;&#232;&#202;&#246;</comment>
+            </column>
+        </property>
+        <property name="help" type="string">
+            <column name="help" length="65535">
+                <comment>&#176;&#239;&#214;&#250;</comment>
+            </column>
+        </property>
+        <property name="advice" type="string">
+            <column name="advice" length="65535">
+                <comment>&#189;&#168;&#210;&#233;</comment>
+            </column>
+        </property>
+        <property name="goloHelp" type="string">
+            <column name="golo_help" length="65535">
+                <comment>&#207;&#234;&#207;&#184;&#176;&#239;&#214;&#250;</comment>
+            </column>
+        </property>
+        <property name="goloAdvice" type="string">
+            <column name="golo_advice" length="65535">
+                <comment>&#207;&#234;&#207;&#184;&#189;&#168;&#210;&#233;</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

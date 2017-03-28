@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.hgsoft.carowner.entity.OBDPacket" table="obd_packet">
+        <id name="id" type="java.lang.String">
+            <column name="id" not-null="true"/>
+            <generator class="assigned" />
+        </id>
+        <property name="packetData" type="java.lang.String">
+            <column name="packetData" not-null="true"/>
+        </property>
+        <property name="insertTime" type="java.util.Date">
+            <column name="insertTime"/>
+        </property>
+        <property name="packetType" type="java.lang.Integer">
+            <column name="packetType"/>
+        </property>
+        <property name="obdSn" type="java.lang.String">
+            <column name="obdSn"/>
+        </property>
+        <property name="comman" type="java.lang.String">
+            <column name="comman"/>
+        </property>
+        <property name="apacketData" type="java.lang.String">
+            <column name="apacketData"/>
+        </property>
+        <property name="msg" type="java.lang.String">
+            <column name="msg"/>
+        </property>  
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-8-27 14:33:49 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping package="com.hgsoft.carowner.entity">
+    <class name="CarAddoil" table="car_addoil">
+        <id name="id" type="string">
+            <column name="id" length="18" />
+            <generator class="assigned" />
+        </id>
+        <property name="carId" type="string">
+            <column name="carId" length="10">
+                <comment>&#179;&#181;&#193;&#190;&#177;&#224;&#186;&#197;</comment>
+            </column>
+        </property>
+        <property name="obdSn" type="string">
+            <column name="obdSn" length="20">
+                <comment>&#214;&#199;&#196;&#220;&#186;&#208;&#188;&#164;&#187;&#238;&#194;&#235;</comment>
+            </column>
+        </property>
+        <property name="gasStation" type="string">
+            <column name="gasStation" length="50">
+                <comment>&#188;&#211;&#211;&#205;&#213;&#190;&#195;&#251;&#179;&#198;</comment>
+            </column>
+        </property>
+        <property name="gasStationAdd" type="string">
+            <column name="gasStationAdd" length="50">
+                <comment>&#205;&#163;&#179;&#181;&#188;&#211;&#211;&#205;&#181;&#216;&#214;&#183;</comment>
+            </column>
+        </property>
+        <property name="oilType" type="string">
+            <column name="oilType" length="10">
+                <comment>&#211;&#205;&#193;&#207;&#177;&#234;&#186;&#197;</comment>
+            </column>
+        </property>
+        <property name="fee" type="string">
+            <column name="fee" length="10">
+                <comment>&#181;&#165;&#188;&#219;</comment>
+            </column>
+        </property>
+        <property name="oilNum" type="string">
+            <column name="oilNum" length="10">
+                <comment>&#188;&#211;&#211;&#205;&#193;&#191;</comment>
+            </column>
+        </property>
+        <property name="total" type="string">
+            <column name="total" length="10">
+                <comment>&#189;&#240;&#182;&#238;</comment>
+            </column>
+        </property>
+        <property name="yname" type="string">
+            <column name="yName" length="20">
+                <comment>&#214;&#176;&#212;&#177;&#195;&#251;&#179;&#198;</comment>
+            </column>
+        </property>
+        <property name="addTime" type="string">
+            <column name="addTime" length="20">
+                <comment>&#202;&#177;&#188;&#228;YYYY-MM-DD hh:mm:ss</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

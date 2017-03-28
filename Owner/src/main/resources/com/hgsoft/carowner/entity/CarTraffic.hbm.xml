@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-8-31 14:09:54 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping package="com.hgsoft.carowner.entity">
+    <class name="CarTraffic" table="car_traffic">
+        <id name="id" type="string">
+            <column name="id" length="18" />
+            <generator class="assigned" />
+        </id>
+        <property name="obdSn" type="string">
+            <column name="obdSn" length="20">
+                <comment>OBD&#201;&#232;&#177;&#184;SN</comment>
+            </column>
+        </property>
+        <property name="carId" type="string">
+            <column name="carId" length="18">
+                <comment>&#179;&#181;&#193;&#190;&#177;&#224;&#186;&#197;</comment>
+            </column>
+        </property>
+        <property name="trafficStatus" type="string">
+            <column name="trafficStatus" length="2">
+                <comment>
+                &#179;&#181;&#206;&#241;&#215;&#180;&#204;&#172;&#163;&#186;00&#177;&#163;&#207;&#213;&#181;&#189;&#198;&#218;&#161;&#162;01&#179;&#181;&#180;&#172;&#203;&#176;&#181;&#189;&#198;&#218;&#161;&#162;02&#196;&#234;&#198;&#177;&#181;&#189;&#198;&#218;&#161;&#162;03&#196;&#234;&#201;&#243;&#181;&#189;&#198;&#218;</comment>
+            </column>
+        </property>
+        <property name="trafficTime" type="string">
+            <column name="trafficTime" length="20">
+                <comment>&#201;&#207;&#180;&#206;&#179;&#181;&#206;&#241;&#176;&#236;&#192;&#237;&#202;&#177;&#188;&#228;</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

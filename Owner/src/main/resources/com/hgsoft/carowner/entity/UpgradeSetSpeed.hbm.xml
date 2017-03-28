@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping  package="com.hgsoft.carowner.entity">
+    <class name="UpgradeSetSpeed" table="upgrade_set_speed">
+        <id name="id" type="string">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <property name="obdSn" type="string">
+            <column name="obdSn" length="50"/>
+        </property>
+        <property name="type" type="java.lang.Integer">
+            <column name="type" />
+        </property>
+        <property name="obdSpeed" type="java.lang.Integer">
+            <column name="obdSpeed" />
+        </property>
+        <property name="gpsSpeed" type="java.lang.Integer">
+            <column name="gpsSpeed" />
+        </property>
+        <property name="count" type="java.lang.Integer">
+            <column name="count" />
+        </property>
+        <property name="createTime" type="timestamp">
+            <column name="createTime" length="19"/>
+        </property>
+        <property name="updateTime" type="timestamp">
+            <column name="updateTime" length="19"/>
+        </property>
+    </class>
+</hibernate-mapping>

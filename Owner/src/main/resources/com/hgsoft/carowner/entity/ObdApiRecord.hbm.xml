@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-9-7 16:22:15 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping  package="com.hgsoft.carowner.entity">
+    <class name="ObdApiRecord" table="obdApi_record">
+        <id name="id" type="string">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <property name="obdMsn" type="string">
+            <column name="obdMsn" length="20">
+                <comment>obd表面码</comment>
+            </column>
+        </property>
+        <property name="url" type="string">
+            <column name="url" length="2">
+                <comment>url</comment>
+            </column>
+        </property>
+        <property name="method" type="string">
+            <column name="method" length="2">
+                <comment>请求方法</comment>
+            </column>
+        </property>
+        <property name="param" type="string">
+            <column name="param" length="2">
+                <comment>请求参数</comment>
+            </column>
+        </property>
+        <property name="returnMsg" type="string">
+            <column name="returnMsg" length="2">
+                <comment>请求参数</comment>
+            </column>
+        </property>
+        <property name="createTime" type="timestamp">
+            <column name="create_time"></column>
+        </property>
+    </class>
+</hibernate-mapping>

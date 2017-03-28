@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration statu="info" schema="Log4j-config.xsd">
+	<Appenders>
+		<Console name="console" target="SYSTEM_OUT">
+			<PatternLayout  charset="UTF-8" pattern="%d %m%n" />
+		</Console>
+		<RollingFile name="urlFile" fileName="logs/url/log.log"
+			filePattern="logs/%d{yyyy-MM}/log-%d{yyyy-MM-dd}-%i.log.gz">
+			<PatternLayout>
+				<Pattern>%d %p %c[1.] [%t] %m%n</Pattern>
+			</PatternLayout>
+			<Policies>
+				<TimeBasedTriggeringPolicy />
+				<SizeBasedTriggeringPolicy size="5 MB" />
+			</Policies>
+			<DefaultRolloverStrategy max="20" />
+		</RollingFile>
+		<RollingFile name="serviceFile" fileName="logs/service/log.log"
+			filePattern="logs/%d{yyyy-MM}/log-%d{yyyy-MM-dd}-%i.log.gz">
+			<PatternLayout>
+				<Pattern>%d %p %c[1.] [%t] %m%n</Pattern>
+			</PatternLayout>
+			<Policies>
+				<TimeBasedTriggeringPolicy />
+				<SizeBasedTriggeringPolicy size="5 MB" />
+			</Policies>
+			<DefaultRolloverStrategy max="20" />
+		</RollingFile>
+		<RollingFile name="errorFile" fileName="logs/error/log.log"
+			filePattern="logs/%d{yyyy-MM}/log-%d{yyyy-MM-dd}-%i.log.gz">
+			<PatternLayout>
+				<Pattern>%d %p %c[1.] [%t] %m%n</Pattern>
+			</PatternLayout>
+			<Policies>
+				<TimeBasedTriggeringPolicy />
+				<SizeBasedTriggeringPolicy size="5 MB" />
+			</Policies>
+			<DefaultRolloverStrategy max="20" />
+		</RollingFile>
+		<RollingFile name="interfaceFile" fileName="logs/interface/log.log"
+			filePattern="logs/%d{yyyy-MM}/log-%d{yyyy-MM-dd}-%i.log.gz">
+			<PatternLayout>
+				<Pattern>%d %p %c[1.] [%t] %m%n</Pattern>
+			</PatternLayout>
+			<Policies>
+				<TimeBasedTriggeringPolicy />
+				<SizeBasedTriggeringPolicy size="5 MB" />
+			</Policies>
+			<DefaultRolloverStrategy max="20" />
+		</RollingFile>
+		<!-- OBD API Log %d %p %c[1.] [%t] %m%n -->
+		<RollingFile name="obdAPIFile" fileName="logs/obd-2.0/api/obdAPI.log"
+			filePattern="logs/obd-2.0/gz/%d{yyyy-MM}/%d{yyyy-MM-dd}/api/obdAPI-%d{yyyy-MM-dd}-%i.log.gz">
+			<PatternLayout>
+				<Pattern>%d %p %m%n</Pattern>
+			</PatternLayout>
+			<Policies>
+				<TimeBasedTriggeringPolicy />
+				<SizeBasedTriggeringPolicy size="100 MB" />
+			</Policies>
+			<DefaultRolloverStrategy max="20" />
+		</RollingFile>
+		
+		<!-- OBD新协议日志 -->
+		<!-- obd上传数据到服务器日志 -->
+		<RollingFile name="obdFile" fileName="logs/obd-2.0/obd.log"
+			filePattern="logs/obd-2.0/gz/%d{yyyy-MM}/%d{yyyy-MM-dd}/obd-%d{yyyy-MM-dd}-%i.log.gz">
+			<PatternLayout>
+				<Pattern>%d %p %m%n</Pattern>
+			</PatternLayout>
+			<Policies>
+				<TimeBasedTriggeringPolicy />
+				<SizeBasedTriggeringPolicy size="100 MB" />
+			</Policies>
+			<DefaultRolloverStrategy max="20" />
+		</RollingFile>
+		<!-- obd报文处理日志 -->
+		<RollingFile name="obdHandlerFile" fileName="logs/obd-2.0/obd-handler.log"
+			filePattern="logs/obd-2.0/gz/%d{yyyy-MM}/%d{yyyy-MM-dd}/obd-handler-%d{yyyy-MM-dd}-%i.log.gz">
+			<PatternLayout>
+				<Pattern>%d %p %m%n</Pattern>
+			</PatternLayout>
+			<Policies>
+				<TimeBasedTriggeringPolicy />
+				<SizeBasedTriggeringPolicy size="100 MB" />
+			</Policies>
+			<DefaultRolloverStrategy max="20" />
+		</RollingFile>
+		<!-- obd报文处理—设备初始化—日志 -->
+		<RollingFile name="obdHandlerDeviceInitFile" fileName="logs/obd-2.0/obd-handler-deviceInit.log"
+			filePattern="logs/obd-2.0/gz/%d{yyyy-MM}/%d{yyyy-MM-dd}/obd-handler-deviceInit-%d{yyyy-MM-dd}-%i.log.gz">
+			<PatternLayout>
+				<Pattern>%d %p %m%n</Pattern>
+			</PatternLayout>
+			<Policies>
+				<TimeBasedTriggeringPolicy />
+				<SizeBasedTriggeringPolicy size="100 MB" />
+			</Policies>
+			<DefaultRolloverStrategy max="20" />
+		</RollingFile>
+		<!-- obd报文处理—位置信息上传—日志 -->
+		<RollingFile name="obdHandlerPositionFile" fileName="logs/obd-2.0/obd-handler-position.log"
+			filePattern="logs/obd-2.0/gz/%d{yyyy-MM}/%d{yyyy-MM-dd}/obd-handler-position-%d{yyyy-MM-dd}-%i.log.gz">
+			<PatternLayout>
+				<Pattern>%d %p %m%n</Pattern>
+			</PatternLayout>
+			<Policies>
+				<TimeBasedTriggeringPolicy />
+				<SizeBasedTriggeringPolicy size="100 MB" />
+			</Policies>
+			<DefaultRolloverStrategy max="20" />
+		</RollingFile>
+		<!-- obd报文处理—行程记录—日志 -->
+		<RollingFile name="obdHandlerTravelFile" fileName="logs/obd-2.0/obd-handler-travel.log"
+			filePattern="logs/obd-2.0/gz/%d{yyyy-MM}/%d{yyyy-MM-dd}/obd-handler-travel-%d{yyyy-MM-dd}-%i.log.gz">
+			<PatternLayout>
+				<Pattern>%d %p %m%n</Pattern>
+			</PatternLayout>
+			<Policies>
+				<TimeBasedTriggeringPolicy />
+				<SizeBasedTriggeringPolicy size="100 MB" />
+			</Policies>
+			<DefaultRolloverStrategy max="20" />
+		</RollingFile>
+		<!-- obd报文处理—设备数据上传—日志 -->
+		<RollingFile name="obdHandlerDeviceDataFile" fileName="logs/obd-2.0/obd-handler-deviceData.log"
+			filePattern="logs/obd-2.0/gz/%d{yyyy-MM}/%d{yyyy-MM-dd}/obd-handler-deviceData-%d{yyyy-MM-dd}-%i.log.gz">
+			<PatternLayout>
+				<Pattern>%d %p %m%n</Pattern>
+			</PatternLayout>
+			<Policies>
+				<TimeBasedTriggeringPolicy />
+				<SizeBasedTriggeringPolicy size="100 MB" />
+			</Policies>
+			<DefaultRolloverStrategy max="20" />
+		</RollingFile>
+		<!-- obd报文处理—设备请求数据帧/ACK应答—日志 -->
+		<RollingFile name="obdHandlerACKFile" fileName="logs/obd-2.0/obd-handler-ack.log"
+			filePattern="logs/obd-2.0/gz/%d{yyyy-MM}/%d{yyyy-MM-dd}/obd-handler-ack-%d{yyyy-MM-dd}-%i.log.gz">
+			<PatternLayout>
+				<Pattern>%d %p %m%n</Pattern>
+			</PatternLayout>
+			<Policies>
+				<TimeBasedTriggeringPolicy />
+				<SizeBasedTriggeringPolicy size="100 MB" />
+			</Policies>
+			<DefaultRolloverStrategy max="20" />
+		</RollingFile>
+		<!-- 服务器下发到—日志 -->
+		<RollingFile name="serverSendObdFile" fileName="logs/obd-2.0/server-send-obd.log"
+			filePattern="logs/obd-2.0/gz/%d{yyyy-MM}/%d{yyyy-MM-dd}/server-send-obd-%d{yyyy-MM-dd}-%i.log.gz">
+			<PatternLayout>
+				<Pattern>%d %p %m%n</Pattern>
+			</PatternLayout>
+			<Policies>
+				<TimeBasedTriggeringPolicy />
+				<SizeBasedTriggeringPolicy size="100 MB" />
+			</Policies>
+			<DefaultRolloverStrategy max="20" />
+		</RollingFile>
+		<RollingFile name="extensionDataFile" fileName="logs/obd-2.0/obd-handler-extensionData.log"
+			filePattern="logs/obd-2.0/gz/%d{yyyy-MM}/%d{yyyy-MM-dd}/obd-handler-extensionData-%d{yyyy-MM-dd}-%i.log.gz">
+			<PatternLayout>
+				<Pattern>%d %p %m%n</Pattern>
+			</PatternLayout>
+			<Policies>
+				<TimeBasedTriggeringPolicy />
+				<SizeBasedTriggeringPolicy size="100 MB" />
+			</Policies>
+			<DefaultRolloverStrategy max="20" />
+		</RollingFile>
+		<RollingFile name="upgradeDataFile" fileName="logs/obd-2.0/obd-handler-upgrade.log"
+			filePattern="logs/obd-2.0/gz/%d{yyyy-MM}/%d{yyyy-MM-dd}/obd-handler-upgrade-%d{yyyy-MM-dd}-%i.log.gz">
+			<PatternLayout>
+				<Pattern>%d %p %m%n</Pattern>
+			</PatternLayout>
+			<Policies>
+				<TimeBasedTriggeringPolicy />
+				<SizeBasedTriggeringPolicy size="100 MB" />
+			</Policies>
+			<DefaultRolloverStrategy max="20" />
+		</RollingFile>
+		<!-- OBD — 在线任务日志 -->
+		<RollingFile name="obdOnLineTaskFile" fileName="logs/obd-2.0/obd-onLine-task.log"
+			filePattern="logs/obd-2.0/gz/%d{yyyy-MM}/%d{yyyy-MM-dd}/obd-onLine-task-%d{yyyy-MM-dd}-%i.log.gz">
+			<PatternLayout>
+				<Pattern>%d %p %m%n</Pattern>
+			</PatternLayout>
+			<Policies>
+				<TimeBasedTriggeringPolicy />
+				<SizeBasedTriggeringPolicy size="100 MB" />
+			</Policies>
+			<DefaultRolloverStrategy max="20" />
+		</RollingFile>
+		<!-- OBD — 异常日志 -->
+		<RollingFile name="exceptionFile" fileName="logs/obd-2.0/exception.log"
+			filePattern="logs/obd-2.0/gz/%d{yyyy-MM}/%d{yyyy-MM-dd}/exception-%d{yyyy-MM-dd}-%i.log.gz">
+			<PatternLayout>
+				<Pattern>%d %p %m%n</Pattern>
+			</PatternLayout>
+			<Policies>
+				<TimeBasedTriggeringPolicy />
+				<SizeBasedTriggeringPolicy size="100 MB" />
+			</Policies>
+			<DefaultRolloverStrategy max="20" />
+		</RollingFile>
+		
+	</Appenders>
+	<Loggers>
+		<Logger name="UrlPermission" level="debug" additivity="false">
+			<AppenderRef ref="urlFile" />
+			<AppenderRef ref="console" level="debug" />
+		</Logger>
+		<Logger name="errorLogger" level="debug" additivity="false">
+			<AppenderRef ref="errorFile" />
+			<AppenderRef ref="console" level="debug" />
+		</Logger>
+		<Logger name="servicePermission" level="debug" additivity="false">
+			<AppenderRef ref="serviceFile" />
+			<AppenderRef ref="console" level="debug" />
+		</Logger>
+		<Logger name="interfacePermission" level="info" additivity="false">
+			<AppenderRef ref="interfaceFile" />
+		</Logger>
+		<Logger name="obdApiLogger" level="info" additivity="false">
+			<AppenderRef ref="obdAPIFile" />
+			<AppenderRef ref="console" level="debug" />
+		</Logger>
+		
+		<!-- OBD上传数据 -->
+		<Logger name="obdLogger" level="info" additivity="false">
+			<AppenderRef ref="obdFile" />
+			<AppenderRef ref="console" level="debug" />
+		</Logger>
+		<!-- OBD上传报文的处理 -->
+		<Logger name="obdHandlerLogger" level="info" additivity="false">
+			<AppenderRef ref="obdHandlerFile" />
+			<AppenderRef ref="console" level="debug" />
+		</Logger>
+		<!-- OBD上传报文—设备初始化—处理 -->
+		<Logger name="obdHandlerDeviceInitLogger" level="info" additivity="false">
+			<AppenderRef ref="obdHandlerDeviceInitFile" />
+			<AppenderRef ref="console" level="debug" />
+		</Logger>
+		<!-- OBD上传报文—位置信息上传—处理 -->
+		<Logger name="obdHandlerPositionLogger" level="info" additivity="false">
+			<AppenderRef ref="obdHandlerPositionFile" />
+			<AppenderRef ref="console" level="debug" />
+		</Logger>
+		<!-- OBD上传报文—行程记录—处理 -->
+		<Logger name="obdHandlerTravelLogger" level="info" additivity="false">
+			<AppenderRef ref="obdHandlerTravelFile" />
+			<AppenderRef ref="console" level="debug" />
+		</Logger>
+		<!-- OBD上传报文—设备数据上传—处理 -->
+		<Logger name="obdHandlerDeviceDataLogger" level="info" additivity="false">
+			<AppenderRef ref="obdHandlerDeviceDataFile" />
+			<AppenderRef ref="console" level="debug" />
+		</Logger>
+		<!-- OBD上传报文—设备请求数据帧/ACK应答—处理 -->
+		<Logger name="obdHandlerACKLogger" level="info" additivity="false">
+			<AppenderRef ref="obdHandlerACKFile" />
+			<AppenderRef ref="console" level="debug" />
+		</Logger>
+		<!-- OBD上传报文—设备请求数据帧/ACK应答—处理 -->
+		<Logger name="serverSendObdLogger" level="info" additivity="false">
+			<AppenderRef ref="serverSendObdFile" />
+			<AppenderRef ref="console" level="debug" />
+		</Logger>
+		<!-- OBD上传报文—扩展数据上传—处理 -->
+		<Logger name="extensionDataLogger" level="info" additivity="false">
+			<AppenderRef ref="extensionDataFile" />
+			<AppenderRef ref="console" level="debug" />
+		</Logger>
+		<!-- OBD —升级相关处理 -->
+		<Logger name="upgradeDataLogger" level="info" additivity="false">
+			<AppenderRef ref="upgradeDataFile" />
+			<AppenderRef ref="console" level="debug" />
+		</Logger>
+		<!-- OBD — 在线任务日志 -->
+		<Logger name="obdOnLineTaskLogger" level="info" additivity="false">
+			<AppenderRef ref="obdOnLineTaskFile" />
+			<AppenderRef ref="console" level="debug" />
+		</Logger>
+		<!-- OBD — 在线异常日志 -->
+		<Logger name="exceptionLogger" level="info" additivity="false">
+			<AppenderRef ref="exceptionFile" />
+			<AppenderRef ref="console" level="debug" />
+		</Logger>
+		
+		<Root level="info">
+			<AppenderRef ref="console" />
+		</Root>
+	</Loggers>
+</Configuration>

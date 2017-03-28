@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping  package="com.hgsoft.carowner.entity">
+    <class name="OBDTravelParams" table="obd_travel_params">
+        <id name="id" type="java.lang.String">
+            <column name="id" not-null="true"/>
+            <generator class="assigned" />
+        </id>
+        <property name="obdSn" type="string">
+            <column name="obdSn" length="50" unique="false"/>
+        </property>
+        <property name="batteryLow" type="integer">
+            <column name="batteryLow"/>
+        </property>
+        <property name="batteryHigh" type="integer">
+            <column name="batteryHigh"/>
+        </property>
+        <property name="overSpeed" type="integer">
+            <column name="overSpeed"/>
+        </property>
+        <property name="limitSpeedLazy" type="integer">
+            <column name="limitSpeedLazy"/>
+        </property>
+        <property name="shuddenTurnSpeed" type="integer">
+            <column name="shuddenTurnSpeed"/>
+        </property>
+        <property name="shuddenTurnAngle" type="integer">
+            <column name="shuddenTurnAngle"/>
+        </property>
+        <property name="shuddenOverSpeed" type="integer">
+            <column name="shuddenOverSpeed"/>
+        </property>
+        <property name="shuddenOverSpeedTime" type="integer">
+            <column name="shuddenOverSpeedTime"/>
+        </property>
+        <property name="shuddenLowSpeed" type="integer">
+            <column name="shuddenLowSpeed"/>
+        </property>
+        <property name="shuddenLowSpeedTime" type="integer">
+            <column name="shuddenLowSpeedTime"/>
+        </property>
+        <property name="shuddenChangeAngle" type="integer">
+            <column name="shuddenChangeAngle"/>
+        </property>
+        <property name="shuddenChangeTime" type="integer">
+            <column name="shuddenChangeTime"/>
+        </property>
+        <property name="engineLowTemperature" type="integer">
+            <column name="engineLowTemperature"/>
+        </property>
+        <property name="engineHighTemperature" type="integer">
+            <column name="engineHighTemperature"/>
+        </property>
+        <property name="engineTurnsWarn" type="integer">
+            <column name="engineTurnsWarn"/>
+        </property>
+        <property name="speedNotMatch" type="integer">
+            <column name="speedNotMatch"/>
+        </property>
+        <property name="speedNotMatchStep" type="integer">
+            <column name="speedNotMatchStep"/>
+        </property>
+        <property name="longLowSpeed" type="integer">
+            <column name="longLowSpeed"/>
+        </property>
+        <property name="longLowSpeedTime" type="integer">
+            <column name="longLowSpeedTime"/>
+        </property>
+        <property name="shuddenBrakeStrength" type="integer">
+            <column name="shuddenBrakeStrength"/>
+        </property>
+        <property name="sideTurnAngle" type="integer">
+            <column name="sideTurnAngle"/>
+        </property>
+        <property name="crashStrength" type="integer">
+            <column name="crashStrength"/>
+        </property>
+        <property name="shockStrength" type="integer">
+            <column name="shockStrength"/>
+        </property>
+        <property name="fatigueDrive" type="integer">
+            <column name="fatigueDrive"/>
+        </property>
+        <property name="fatigueSleep" type="integer">
+            <column name="fatigueSleep"/>
+        </property>
+        <property name="fenceInLongtitude" type="string">
+            <column name="fenceInLongtitude"/>
+        </property>
+        <property name="fenceInLatitude" type="string">
+            <column name="fenceInLatitude"/>
+        </property>
+        <property name="fenceOutLongtitude" type="string">
+            <column name="fenceOutLongtitude"/>
+        </property>
+        <property name="fenceOutLatitude" type="string">
+            <column name="fenceOutLatitude"/>
+        </property>
+        <property name="createTime" type="java.util.Date">
+            <column name="createTime" unique="false">
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

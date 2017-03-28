@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" 
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop.xsd
+       http://www.springframework.org/schema/tx
+       http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
+
+	<context:annotation-config />
+	<context:component-scan base-package="com.hgsoft" />
+	
+	<!-- C3P0数据源设置 --><!-- 
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+		<property name="driverClass" value="${jdbc.driverClass}" />
+		<property name="jdbcUrl" value="${jdbc.jdbcUrl}" />
+		<property name="user" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+		C3P0连接池
+		<property name="initialPoolSize" value="${c3p0.initialPoolSize}" />
+		<property name="minPoolSize" value="${c3p0.minPoolSize}" />
+		<property name="maxPoolSize" value="${c3p0.maxPoolSize}" />
+		<property name="maxIdleTime" value="${c3p0.maxIdleTime}" />
+		<property name="acquireIncrement" value="${c3p0.acquireIncrement}" />
+		<property name="breakAfterAcquireFailure" value="${c3p0.breakAfterAcquireFailure}" />
+		<property name="idleConnectionTestPeriod" value="${c3p0.idleConnectionTestPeriod}" />
+		<property name="testConnectionOnCheckin" value="${c3p0.testConnectionOnCheckin}" />
+		<property name="testConnectionOnCheckout" value="${c3p0.testConnectionOnCheckout}" />
+		<property name="acquireRetryAttempts" value="${c3p0.acquireRetryAttempts}" />
+		<property name="acquireRetryDelay" value="${c3p0.acquireRetryDelay}" />
+		<property name="preferredTestQuery" value="select GETDATE()" />
+		<property name="maxStatements" value="${c3p0.maxStatements}" />
+		<property name="maxStatementsPerConnection" value="${c3p0.maxStatementsPerConnection}" />
+		SQLEXCEPTION，如果设置0，则无限等待。Default:0 
+		<property name="checkoutTimeout" value="${c3p0.checkoutTimeout}"/>
+	</bean> -->
+	<!-- Druid Datasource -->
+	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource"	init-method="init" destroy-method="close">
+		<!-- 基本属性 url、user、password -->
+		<property name="url" value="${druid.url}" />
+		<property name="username" value="${druid.username}" />
+		<property name="password" value="${druid.password}" />
+		<!--
+			配置监控统计拦截的filters <property name="filters" value="stat" />
+		-->
+		<property name="filters" value="config,stat,wall" />
+		<!-- 密码加密:需要在filter上加config才生效 
+		<property name="password" value="${druid.password.decrypt}" />
+		<property name="connectionProperties" value="config.decrypt=true" />
+-->
+		<property name="connectionProperties" value="druid.stat.slowSqlMillis=${druid.stat.slowSqlMillis}" />
+		<!-- 配置初始化大小、最小、最大 -->
+		<property name="initialSize" value="${druid.initialSize}" />
+		<property name="minIdle" value="${druid.minIdle}" />
+		<property name="maxActive" value="${druid.maxActive}" />
+
+		<!-- 配置获取连接等待超时的时间 -->
+		<property name="maxWait" value="${druid.maxWait}" />
+
+		<!-- 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒 -->
+		<property name="timeBetweenEvictionRunsMillis" value="${druid.timeBetweenEvictionRunsMillis}" />
+		<!-- 定期把监控数据输出到日志中 -->
+		<property name="timeBetweenLogStatsMillis" value="${druid.timeBetweenLogStatsMillis}" />
+
+		<!-- 配置一个连接在池中最小生存的时间，单位是毫秒 -->
+		<property name="minEvictableIdleTimeMillis" value="${druid.minEvictableIdleTimeMillis}" />
+
+		<property name="validationQuery" value="${druid.validationQuery}" />
+		<property name="testWhileIdle" value="${druid.testWhileIdle}" />
+		<property name="testOnBorrow" value="${druid.testOnBorrow}" />
+		<property name="testOnReturn" value="${druid.testOnReturn}" />
+
+		<!-- 打开PSCache，并且指定每个连接上PSCache的大小 -->
+		<property name="poolPreparedStatements" value="${druid.poolPreparedStatements}" />
+		<property name="maxPoolPreparedStatementPerConnectionSize"
+			value="${druid.maxPoolPreparedStatementPerConnectionSize}" />
+		<!-- 连接泄漏 -->
+		<property name="removeAbandoned" value="${druid.removeAbandoned}" /> <!-- 打开removeAbandoned功能 -->
+		<property name="removeAbandonedTimeout" value="${druid.removeAbandonedTimeout}" /> <!-- 1800秒，也就是30分钟 -->
+		<property name="logAbandoned" value="${druid.logAbandoned}" /> <!-- 关闭abanded连接时输出错误日志 -->
+	</bean>
+	
+	<!-- 配置文件注入 -->
+	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE" />
+		<property name="ignoreResourceNotFound" value="true" />
+		<property name="locations">
+			<list>
+				<value>classpath:driver.properties</value>
+				<value>classpath:redis.properties</value>
+				<value>classpath:druid.properties</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"></property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">
+					${hibernate.dialect}
+				</prop>
+				<!-- 设置Hibernate是否在控制台输出SQL语句，开发调试阶段通常设为true -->
+             <prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
+             <!-- 设置SQL是否格式化输出 -->
+             <prop key="hibernate.format_sql">${hibernate.format_sql}</prop>
+			 <!-- 设置Hibernate一个提交批次中的最大SQL语句数 -->
+             <prop key="hibernate.jdbc.batch_size">50</prop>
+             <prop key="hibernate.order_inserts">true</prop>
+    		 <prop key="hibernate.order_updates">true</prop>
+			</props>
+		</property>
+		<property name="mappingResources">
+			<list>
+				<value>com/hgsoft/system/entity/Admin.hbm.xml</value>
+				<value>com/hgsoft/system/entity/Module.hbm.xml</value>
+				<value>com/hgsoft/system/entity/Role.hbm.xml</value>
+				<value>com/hgsoft/system/entity/SystemLog.hbm.xml</value>
+				<value>com/hgsoft/system/entity/Sysparamconf.hbm.xml</value>
+				
+				<!-- 车主通 (实体映射)-->
+				<value>com/hgsoft/carowner/entity/OBDStockInfo.hbm.xml</value>
+				<value>com/hgsoft/carowner/entity/CarInfo.hbm.xml</value>
+				<value>com/hgsoft/carowner/entity/CarType.hbm.xml</value>
+				<value>com/hgsoft/carowner/entity/MebUser.hbm.xml</value>
+				<value>com/hgsoft/carowner/entity/PositionalInformation.hbm.xml</value>
+				<value>com/hgsoft/carowner/entity/CarTraveltrack.hbm.xml</value>
+				<value>com/hgsoft/carowner/entity/VMemberCar.hbm.xml</value>
+				<value>com/hgsoft/carowner/entity/ObdIp.hbm.xml</value>				
+				<value>com/hgsoft/carowner/entity/FaultCode.hbm.xml</value>				
+				<value>com/hgsoft/carowner/entity/Dictionary.hbm.xml</value>
+				<value>com/hgsoft/carowner/entity/FaultUpload.hbm.xml</value>
+				<value>com/hgsoft/carowner/entity/MebCarFault.hbm.xml</value>
+				<value>com/hgsoft/carowner/entity/CarGSPTrack.hbm.xml</value>
+				<value>com/hgsoft/carowner/entity/SerInformationman.hbm.xml</value>
+				<value>com/hgsoft/carowner/entity/CarOilInfo.hbm.xml</value>
+				<value>com/hgsoft/carowner/entity/CarDriveInfo.hbm.xml</value>
+				<value>com/hgsoft/carowner/entity/SimStockInfo.hbm.xml</value>
+				<value>com/hgsoft/carowner/entity/SerMessageinfo.hbm.xml</value>
+				<value>com/hgsoft/carowner/entity/WarningMessage.hbm.xml</value>
+				<value>com/hgsoft/carowner/entity/ObdBarrier.hbm.xml</value>
+				<value>com/hgsoft/carowner/entity/CarTest.hbm.xml</value>
+				<value>com/hgsoft/carowner/entity/CarParam.hbm.xml</value>
+				<value>com/hgsoft/carowner/entity/CarAddoil.hbm.xml</value>
+				<value>com/hgsoft/carowner/entity/CarDispatch.hbm.xml</value>
+				<value>com/hgsoft/carowner/entity/CarMaintain.hbm.xml</value>
+				<value>com/hgsoft/carowner/entity/CarTraffic.hbm.xml</value>
+				<value>com/hgsoft/carowner/entity/CarViolation.hbm.xml</value>
+				<value>com/hgsoft/carowner/entity/ObdUpgrade.hbm.xml</value>
+				<value>com/hgsoft/carowner/entity/Wifi.hbm.xml</value>
+				<value>com/hgsoft/carowner/entity/ObdVersion.hbm.xml</value>
+				<value>com/hgsoft/carowner/entity/AGPS.hbm.xml</value>
+				<value>com/hgsoft/carowner/entity/FaultCode1.hbm.xml</value>	
+				<value>com/hgsoft/carowner/entity/ObdCurVersion.hbm.xml</value>
+				<value>com/hgsoft/carowner/entity/GpsSet.hbm.xml</value>
+				<value>com/hgsoft/carowner/entity/WifiSet.hbm.xml</value>
+				<value>com/hgsoft/carowner/entity/portal.hbm.xml</value>
+				<value>com/hgsoft/carowner/entity/ServerSet.hbm.xml</value>
+				<value>com/hgsoft/carowner/entity/UpgradeSet.hbm.xml</value>
+				<value>com/hgsoft/carowner/entity/PositionInfo.hbm.xml</value>
+				<value>com/hgsoft/carowner/entity/PositionDriveInfo.hbm.xml</value>
+				<value>com/hgsoft/carowner/entity/PositionWarnInfo.hbm.xml</value>
+				<value>com/hgsoft/carowner/entity/OBDPacket.hbm.xml</value>
+				<value>com/hgsoft/carowner/entity/ObdTimeParams.hbm.xml</value>
+				<value>com/hgsoft/carowner/entity/ObdServerParams.hbm.xml</value>
+				<value>com/hgsoft/carowner/entity/ObdTravelParams.hbm.xml</value>
+				<value>com/hgsoft/carowner/entity/ObdDeviceVersion.hbm.xml</value>
+				<value>com/hgsoft/carowner/entity/Efence.hbm.xml</value>
+				<value>com/hgsoft/carowner/entity/ObdGroup.hbm.xml</value>
+				<value>com/hgsoft/carowner/entity/ObdUnReg.hbm.xml</value>
+				<value>com/hgsoft/carowner/entity/ObdSetting.hbm.xml</value>
+				<value>com/hgsoft/carowner/entity/ObdHandShake.hbm.xml</value>
+				<value>com/hgsoft/carowner/entity/ObdState.hbm.xml</value>
+				<value>com/hgsoft/carowner/entity/ObdApiRecord.hbm.xml</value>
+				<value>com/hgsoft/carowner/entity/DomainState.hbm.xml</value>
+				<value>com/hgsoft/carowner/entity/FotaSet.hbm.xml</value>
+				<value>com/hgsoft/carowner/entity/Fota.hbm.xml</value>
+				<value>com/hgsoft/carowner/entity/Fence.hbm.xml</value>
+				<value>com/hgsoft/carowner/entity/ObdTestSendPacket.hbm.xml</value>
+				<value>com/hgsoft/carowner/entity/ObdSimCard.hbm.xml</value>
+				<value>com/hgsoft/carowner/entity/ObdReports.hbm.xml</value>
+				<value>com/hgsoft/carowner/entity/Agnss.hbm.xml</value>
+				<value>com/hgsoft/carowner/entity/AgnssHis.hbm.xml</value>
+				<value>com/hgsoft/carowner/entity/ObdCar.hbm.xml</value>
+				<value>com/hgsoft/carowner/entity/ObdCarHis.hbm.xml</value>
+				<value>com/hgsoft/carowner/entity/ObdMiles.hbm.xml</value>
+				<value>com/hgsoft/carowner/entity/FenceHis.hbm.xml</value>
+				<value>com/hgsoft/carowner/entity/ObdButtonAlarm.hbm.xml</value>
+				<value>com/hgsoft/carowner/entity/ObdGroupAGPS.hbm.xml</value>
+				<value>com/hgsoft/carowner/entity/BatchSet.hbm.xml</value>
+				<value>com/hgsoft/carowner/entity/ObdBatchSet.hbm.xml</value>
+			</list>
+		</property>
+		<!-- <property name="mappingDirectoryLocations" >
+			<list>
+				<value>classpath*:/com/hgsoft/system/entity/</value>
+				<value>classpath*:/com/hgsoft/common/entity/</value>
+			</list>		
+		</property> -->
+	</bean>
+
+	<aop:aspectj-autoproxy />
+	
+	<bean id="logAspect" class="com.hgsoft.system.aop.LogAspect" />
+	<bean id="exceptionHandler" class="com.hgsoft.obd.server.ExceptionHandler" />
+
+	<!-- 配置事务管理器 -->
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<!-- 配置事务传播特性 -->
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="save*" propagation="REQUIRED" />
+			<tx:method name="update*" propagation="REQUIRED" />
+			<tx:method name="delete*" propagation="REQUIRED" />
+			<tx:method name="*" read-only="false" />
+		</tx:attributes>
+	</tx:advice>
+
+	<!-- 定义使用事务管理的方法 -->
+	<aop:config>
+		<aop:pointcut id="managerMethod" expression="execution(* com.hgsoft.*.service.*.*(..))" />
+		<aop:advisor pointcut-ref="managerMethod" advice-ref="txAdvice" />
+	</aop:config>
+	
+	<import resource="redis.xml"/>
+	<import resource="quartz.xml"/>
+
+</beans>

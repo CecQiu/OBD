@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-7-28 15:51:15 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.hgsoft.carowner.entity.MemberCar" table="v_member_car">
+    	<id name="regUserId" type="java.lang.String">
+            <column name="regUserId"/>
+            <generator class="assigned" />
+        </id>
+        <property name="mobileNumber" type="string">
+            <column name="mobileNumber" />
+        </property>
+        <property name="obdSn" type="string">
+            <column name="obdSN" />
+        </property>
+        <property name="carId" type="string">
+            <column name="carId" />
+        </property>
+        <property name="name" type="string">
+            <column name="name" />
+        </property>
+        <property name="sex" type="string">
+            <column name="sex" />
+        </property>
+        <property name="userType" type="java.lang.Integer">
+            <column name="userType" />
+        </property>
+        <property name="password" type="string">
+            <column name="password" />
+        </property>
+        <property name="payPassword" type="string">
+            <column name="payPassword" />
+        </property>
+        <property name="valid" type="string">
+            <column name="valid" />
+        </property>
+        <property name="license" type="string">
+            <column name="license" />
+        </property>
+        <property name="carState" type="string">
+            <column name="carState" />
+        </property>
+        <property name="cartypeId" type="string">
+            <column name="cartype_id" />
+        </property>
+        <property name="firstLetter" type="string">
+            <column name="first_letter" />
+        </property>
+        <property name="makeName" type="string">
+            <column name="make_name" />
+        </property>
+        <property name="modelSeries" type="string">
+            <column name="model_series" />
+        </property>
+        <property name="modelName" type="string">
+            <column name="model_name" />
+        </property>
+        <property name="typeSeries" type="string">
+            <column name="type_series" />
+        </property>
+        <property name="typeName" type="string">
+            <column name="type_name" />
+        </property>
+        <property name="country" type="string">
+            <column name="country" />
+        </property>
+        <property name="technology" type="string">
+            <column name="technology" />
+        </property>
+        <property name="vehicleClass" type="string">
+            <column name="vehicle_class" />
+        </property>
+        <property name="engineCapacity" type="string">
+            <column name="engine_capacity" />
+        </property>
+        <property name="transmission" type="string">
+            <column name="transmission" />
+        </property>
+        <property name="isFault" type="java.lang.Integer">
+            <column name="isfault" />
+        </property>
+    </class>
+</hibernate-mapping>

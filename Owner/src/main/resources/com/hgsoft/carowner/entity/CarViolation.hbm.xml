@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-8-31 14:09:54 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping package="com.hgsoft.carowner.entity">
+    <class name="CarViolation" table="car_violation">
+        <id name="id" type="string">
+            <column name="id" length="18" />
+            <generator class="assigned" />
+        </id>
+        <property name="obdSn" type="string">
+            <column name="obdSn" length="20">
+                <comment>OBD&#201;&#232;&#177;&#184;SN</comment>
+            </column>
+        </property>
+        <property name="carId" type="string">
+            <column name="carId" length="18">
+                <comment>&#179;&#181;&#193;&#190;&#177;&#224;&#186;&#197;</comment>
+            </column>
+        </property>
+        <property name="violationTime" type="string">
+            <column name="violationTime" length="20">
+                <comment>&#206;&#165;&#213;&#194;&#202;&#177;&#188;&#228;</comment>
+            </column>
+        </property>
+        <property name="violationAddress" type="string">
+            <column name="violationAddress" length="50">
+                <comment>&#206;&#165;&#213;&#194;&#181;&#216;&#181;&#227;</comment>
+            </column>
+        </property>
+        <property name="violationDesc" type="string">
+            <column name="violationDesc" length="250">
+                <comment>&#206;&#165;&#213;&#194;&#196;&#218;&#200;&#221;</comment>
+            </column>
+        </property>
+        <property name="penaltyPoints" type="string">
+            <column name="penaltyPoints" length="2">
+                <comment>&#206;&#165;&#213;&#194;&#191;&#219;&#183;&#214;</comment>
+            </column>
+        </property>
+        <property name="principal" type="string">
+            <column name="principal" length="10">
+                <comment>&#177;&#190;&#189;&#240;</comment>
+            </column>
+        </property>
+        <property name="overdueFine" type="string">
+            <column name="overdueFine" length="10">
+                <comment>&#214;&#205;&#196;&#201;&#189;&#240;</comment>
+            </column>
+        </property>
+        <property name="commission" type="string">
+            <column name="commission" length="2">
+                <comment>&#202;&#199;&#183;&#241;&#191;&#201;&#180;&#250;&#192;&#237; 0&#202;&#199; 1&#178;&#187;&#202;&#199;</comment>
+            </column>
+        </property>
+        <property name="comment" type="string">
+            <column name="comment" length="250">
+                <comment>&#177;&#184;&#215;&#162;</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

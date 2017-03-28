@@ -1,0 +1,154 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-7-23 15:31:00 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.hgsoft.carowner.entity.CarTraveltrack" table="car_traveltrack">
+        <comment>车辆行程记录表</comment>
+        <id name="id" type="string">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <property name="obdsn" type="string">
+            <column name="obdsn">
+                <comment>智能盒激活码（SN码）</comment>
+            </column>
+        </property>
+        <property name="insesrtTime" type="java.util.Date">
+            <column name="insesrtTime">
+                <comment>数据插入时间</comment>
+            </column>
+        </property>
+        <property name="travelEnd" type="java.util.Date">
+            <column name="travelEnd">
+                <comment>行程结束</comment>
+            </column>
+        </property>
+        <property name="travelNo" type="java.lang.Integer">
+            <column name="travelNo">
+                <comment>行程序号</comment>
+            </column>
+        </property>
+        <property name="travelStart" type="java.util.Date">
+            <column name="travelStart">
+                <comment>行程开始</comment>
+            </column>
+        </property>
+        <property name="distance" type="java.lang.Long">
+            <column name="distance">
+                <comment>距离</comment>
+            </column>
+        </property>
+        <property name="speed" type="java.lang.Integer">
+            <column name="speed">
+                <comment>最大速度</comment>
+            </column>
+        </property>
+        <property name="overspeed" type="java.lang.Long">
+            <column name="overspeed">
+                <comment>超速次数</comment>
+            </column>
+        </property>
+        <property name="brakesNum" type="java.lang.Long">
+            <column name="brakesNum">
+                <comment>急刹车次数</comment>
+            </column>
+        </property>
+        <property name="quickTurn" type="java.lang.Integer">
+            <column name="quickTurn">
+                <comment>急转弯次数</comment>
+            </column>
+        </property>
+        <property name="urgentBrakesNum" type="java.lang.Long">
+            <column name="urgentBrakesNum">
+                <comment>紧急刹车次数,作废</comment>
+            </column>
+        </property>
+        <property name="quickenNum" type="java.lang.Long">
+            <column name="quickenNum">
+                <comment>急加速次数</comment>
+            </column>
+        </property>
+        <property name="urgentquickenNum" type="java.lang.Long">
+            <column name="urgentquickenNum">
+                <comment>紧急加速次数,作废</comment>
+            </column>
+        </property>
+        <property name="averageSpeed" type="java.lang.Integer">
+            <column name="averageSpeed">
+                <comment>平均速度,作废</comment>
+            </column>
+        </property>
+        <property name="quickSlowDown" type="java.lang.Integer">
+            <column name="quickSlowDown">
+                <comment>急减速次数</comment>
+            </column>
+        </property>
+        <property name="quickLaneChange" type="java.lang.Integer">
+            <column name="quickLaneChange">
+                <comment>急变道次数</comment>
+            </column>
+        </property>
+        <property name="temperature" type="java.lang.Integer">
+            <column name="temperature">
+                <comment>发动机最高水温</comment>
+            </column>
+        </property>
+        <property name="rotationalSpeed" type="java.lang.Long">
+            <column name="rotationalSpeed">
+                <comment>发动机最高工作转速</comment>
+            </column>
+        </property>
+        <property name="engineMaxSpeed" type="java.lang.Integer">
+            <column name="engineMaxSpeed">
+                <comment>发动机最高工作转速次数</comment>
+            </column>
+        </property>
+        <property name="speedMismatch" type="java.lang.Integer">
+            <column name="speedMismatch">
+                <comment>车速转速不匹配次数</comment>
+            </column>
+        </property>
+        <property name="idling" type="java.lang.Integer">
+            <column name="idling">
+                <comment>怠速次数</comment>
+            </column>
+        </property>
+        <property name="voltage" type="java.lang.Double">
+            <column name="voltage">
+                <comment>电压值</comment>
+            </column>
+        </property>
+        <property name="totalFuel" type="java.lang.Long">
+            <column name="totalFuel">
+                <comment>总油耗</comment>
+            </column>
+        </property>
+        <property name="averageFuel" type="java.lang.Long">
+            <column name="averageFuel">
+                <comment>平均油耗</comment>
+            </column>
+        </property>
+        <property name="driverTime" type="java.lang.Integer">
+            <column name="driverTime">
+                <comment>疲劳驾驶时长</comment>
+            </column>
+        </property>
+        <property name="message" type="string">
+            <column name="message">
+                <comment>接收的报文</comment>
+            </column>
+        </property>
+        <property name="overspeedTime" type="java.lang.Integer">
+            <column name="overspeedTime">
+                <comment>超速次数</comment>
+            </column>
+        </property>
+        <property name="type" type="java.lang.Integer">
+            <column name="type">
+                <comment>行程类型</comment>
+            </column>
+        </property>
+		<!--<many-to-one name="mebUser" class="com.hgsoft.carowner.entity.MebUser" fetch="join" insert="false" update="false" lazy="false" column="obdsn" property-ref="obdSN"/>-->
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-7-23 16:29:55 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping package="com.hgsoft.carowner.entity">
+    <class name="Dictionary" table="dictionary" optimistic-lock="version">
+        <id name="id" type="string">
+            <column name="id" length="18" />
+            <generator class="assigned" />
+        </id>
+        <property name="code" type="string">
+            <column name="code">
+                <comment>&#177;&#224;&#194;&#235;</comment>
+            </column>
+        </property>
+        <property name="trueValue" type="string">
+            <column name="true_value">
+                <comment>&#213;&#230;&#202;&#181;&#214;&#181;</comment>
+            </column>
+        </property>
+        <property name="showValue" type="string">
+            <column name="show_value">
+                <comment>&#214;&#208;&#206;&#196;&#213;&#185;&#202;&#190;&#195;&#251;&#179;&#198;</comment>
+            </column>
+        </property>
+        <property name="type" type="string">
+            <column name="type">
+                <comment>&#192;&#224;&#177;&#240;code&#163;&#172;&#211;&#195;&#192;&#180;&#184;&#250;code&#215;&#233;&#186;&#207;&#178;&#233;&#209;&#175;true_value</comment>
+            </column>
+        </property>
+        <property name="createTime" type="timestamp">
+            <column name="create_time" length="19">
+                <comment>&#180;&#180;&#189;&#168;&#202;&#177;&#188;&#228;</comment>
+            </column>
+        </property>
+        <property name="createUser" type="string">
+            <column name="create_user" length="50">
+                <comment>&#180;&#180;&#189;&#168;&#200;&#203;</comment>
+            </column>
+        </property>
+        <property name="state" type="string">
+            <column name="state" length="1">
+                <comment>
+                &#202;&#199;&#183;&#241;&#211;&#208;&#208;&#167;&#163;&#172;F&#163;&#186;&#206;&#222;&#208;&#167;&#163;&#187;T&#163;&#186;&#211;&#208;&#208;&#167;</comment>
+            </column>
+        </property>
+        <property name="remark" type="string">
+            <column name="remark">
+                <comment>&#177;&#184;&#215;&#162;</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

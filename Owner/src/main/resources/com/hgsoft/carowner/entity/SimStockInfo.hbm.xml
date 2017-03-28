@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-8-11 17:55:27 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping package="com.hgsoft.carowner.entity">
+    <class name="SimStockInfo" table="sim_stock_info">
+        <id name="stockId" type="string">
+            <column name="stockId" length="10" />
+            <generator class="assigned" />
+        </id>
+        <property name="simId" type="string">
+            <column name="simId" length="20">
+                <comment>&#193;&#247;&#193;&#191;&#191;&#168;&#186;&#197;&#194;&#235;</comment>
+            </column>
+        </property>
+        <property name="obdSn" type="string">
+            <column name="obdSn" length="20">
+                <comment>&#214;&#199;&#196;&#220;&#186;&#208;&#188;&#164;&#187;&#238;&#194;&#235;&#163;&#168;SN&#194;&#235;</comment>
+            </column>
+        </property>
+        <property name="activateType" type="string">
+            <column name="activateType" length="2">
+                <comment>&#191;&#168;&#188;&#164;&#187;&#238;&#215;&#180;&#204;&#172; 00:&#210;&#209;&#188;&#164;&#187;&#238;01:&#206;&#180;&#188;&#164;&#187;&#238;</comment>
+            </column>
+        </property>
+        <property name="flowFlag" type="string">
+            <column name="flowFlag" length="2">
+                <comment>
+                &#202;&#199;&#183;&#241;&#179;&#172;&#193;&#247;&#193;&#191;01&#210;&#209;&#179;&#172;&#193;&#247;&#193;&#191;02&#206;&#180;&#179;&#172;&#193;&#247;&#193;&#191;03&#188;&#180;&#189;&#171;&#179;&#172;&#193;&#247;&#193;&#191;</comment>
+            </column>
+        </property>
+        <property name="regUserId" type="string">
+            <column name="regUserId" length="10">
+                <comment>&#185;&#216;&#193;&#170;&#211;&#195;&#187;&#167;</comment>
+            </column>
+        </property>
+        <property name="name" type="string">
+            <column name="name" length="20">
+                <comment>&#211;&#195;&#187;&#167;&#208;&#213;&#195;&#251;</comment>
+            </column>
+        </property>
+        <property name="activationTime" type="string">
+            <column name="activationTime" length="20">
+                <comment>&#202;&#215;&#180;&#206;&#188;&#164;&#187;&#238;&#202;&#177;&#188;&#228;</comment>
+            </column>
+        </property>
+        <property name="flowUse" type="long">
+            <column name="flowUse">
+            </column>
+        </property>
+        <property name="tempFlowUse" type="long">
+            <column name="tempFlowUse">
+            </column>
+        </property>
+        <property name="totalFlow" type="long">
+            <column name="totalFlow">
+            </column>
+        </property>
+        <property name="cleanFlowUse" type="long">
+            <column name="cleanFlowUse">
+            </column>
+        </property>
+        <property name="valid" type="integer">
+            <column name="valid">
+            </column>
+        </property>
+        <property name="createTime" type="java.util.Date">
+        	<column name="createTime" not-null="true"></column>
+        </property>
+        <property name="updateTime" type="java.util.Date">
+        	<column name="updateTime"></column>
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-9-7 16:22:15 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping  package="com.hgsoft.carowner.entity">
+    <class name="GpsSet" table="gps_set">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="obdSn" type="string">
+            <column name="obdSn" length="20">
+                <comment>obd设备号</comment>
+            </column>
+        </property>
+        <property name="gpsState" type="string">
+            <column name="gps_state" length="2">
+                <comment>gps状态</comment>
+            </column>
+        </property>
+        <property name="createTime" type="timestamp">
+            <column name="create_time" length="19">
+                <comment>&#180;&#180;&#189;&#168;&#202;&#177;&#188;&#228;</comment>
+            </column>
+        </property>
+        <property name="updateTime" type="timestamp">
+            <column name="update_time" length="19">
+                <comment>&#180;&#180;&#189;&#168;&#202;&#177;&#188;&#228;</comment>
+            </column>
+        </property>
+        <property name="valid" type="string">
+            <column name="valid" length="2">
+                <comment>是否有效0无效1有效</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

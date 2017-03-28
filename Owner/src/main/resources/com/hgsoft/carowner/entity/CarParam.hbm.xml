@@ -1,0 +1,205 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-8-28 11:24:12 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping package="com.hgsoft.carowner.entity">
+    <class name="CarParam" table="car_param" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="obdSn" type="string">
+            <column name="obdSn" length="20">
+                <comment>OBD&#201;&#232;&#177;&#184;SN</comment>
+            </column>
+        </property>
+        <property name="areaNum" type="string">
+            <column name="areaNum" length="10">
+                <comment>&#199;&#248;&#211;&#242;&#177;&#224;&#186;&#197;, &#211;&#208;&#208;&#167;&#199;&#248;&#211;&#242;&#206;&#170;&#163;&#186;0&#181;&#189;49</comment>
+            </column>
+        </property>
+        <property name="railAndAlert" type="string">
+            <column name="railAndAlert" length="20">
+                <comment>&#206;&#167;&#192;&#184;&#192;&#224;&#208;&#205;+&#177;&#168;&#190;&#175;&#183;&#189;&#202;&#189;</comment>
+            </column>
+        </property>
+        <property name="maxLongitude" type="string">
+            <column name="maxLongitude" length="20">
+                <comment>&#180;&#243;&#190;&#173;(&#212;&#178;&#208;&#206;&#202;&#177;&#206;&#170;&#212;&#178;&#208;&#196;&#190;&#173;&#182;&#200;)</comment>
+            </column>
+        </property>
+        <property name="maxLatitude" type="string">
+            <column name="maxLatitude" length="20">
+                <comment>&#180;&#243;&#206;&#179;(&#212;&#178;&#208;&#206;&#202;&#177;&#206;&#170;&#212;&#178;&#208;&#196;&#206;&#179;&#182;&#200;)</comment>
+            </column>
+        </property>
+        <property name="minLongitude" type="string">
+            <column name="minLongitude" length="20">
+                <comment>&#208;&#161;&#190;&#173;(&#212;&#178;&#208;&#206;&#202;&#177;&#206;&#170;&#176;&#235;&#190;&#182;&#180;&#243;&#208;&#161;)</comment>
+            </column>
+        </property>
+        <property name="minLatitude" type="string">
+            <column name="minLatitude" length="20">
+                <comment>&#208;&#161;&#206;&#179;(&#212;&#178;&#208;&#206;&#202;&#177;&#206;&#170;0)</comment>
+            </column>
+        </property>
+        <property name="overspeed" type="string">
+            <column name="overspeed" length="20">
+                <comment>0x05&#163;&#168;&#179;&#172;&#203;&#217;&#177;&#168;&#190;&#175;&#227;&#208;&#214;&#181;&#163;&#169;</comment>
+            </column>
+        </property>
+        <property name="sleepTime" type="string">
+            <column name="sleepTime" length="20">
+                <comment>0x06&#163;&#168;&#189;&#248;&#200;&#235;&#208;&#221;&#195;&#223;&#196;&#163;&#202;&#189;&#181;&#196;&#202;&#177;&#188;&#228;&#163;&#169;</comment>
+            </column>
+        </property>
+        <property name="accTime" type="string">
+            <column name="accTime" length="20">
+                <comment>
+                0x07&#163;&#168;ACC&#191;&#170;&#202;&#177;&#186;&#242;&#180;&#230;&#180;&#162;&#206;&#187;&#214;&#195;&#208;&#197;&#207;&#162;&#181;&#196;&#188;&#228;&#184;&#244;&#163;&#169;</comment>
+            </column>
+        </property>
+        <property name="heartTime" type="string">
+            <column name="heartTime" length="20">
+                <comment>0x08
+                (&#208;&#196;&#204;&#248;&#202;&#177;&#188;&#228;&#188;&#228;&#184;&#244;)&#195;&#187;&#211;&#208;&#208;&#221;&#195;&#223;&#202;&#177;&#186;&#242;&#188;&#228;&#184;&#244;</comment>
+            </column>
+        </property>
+        <property name="gps" type="string">
+            <column name="gps" length="10">
+                <comment>0x09 GPS&#191;&#170;&#185;&#216;</comment>
+            </column>
+        </property>
+        <property name="position" type="string">
+            <column name="position" length="10">
+                <comment>0x0a(&#206;&#187;&#214;&#195;&#208;&#197;&#207;&#162;&#178;&#223;&#194;&#212;)</comment>
+            </column>
+        </property>
+        <property name="safety" type="string">
+            <column name="safety" length="20">
+                <comment>0x0b&#201;&#232;&#183;&#192;&#179;&#183;&#183;&#192;</comment>
+            </column>
+        </property>
+        <property name="timeZone" type="string">
+            <column name="timeZone" length="20">
+                <comment>0x0e(&#202;&#177;&#199;&#248;&#201;&#232;&#214;&#195;)</comment>
+            </column>
+        </property>
+        <property name="voltage" type="string">
+            <column name="voltage" length="20">
+                <comment>0x0f(&#181;&#231;&#209;&#185;&#214;&#181;&#163;&#172;&#214;&#187;&#182;&#193;)</comment>
+            </column>
+        </property>
+        <property name="gsm" type="string">
+            <column name="GSM" length="20">
+                <comment>0x10(GSM &#208;&#197;&#186;&#197;&#199;&#191;&#182;&#200;&#163;&#172;&#214;&#187;&#182;&#193;)</comment>
+            </column>
+        </property>
+        <property name="undervoltage" type="string">
+            <column name="undervoltage" length="20">
+                <comment>0x12&#199;&#183;&#209;&#185;&#177;&#168;&#190;&#175;&#227;&#208;&#214;&#181;</comment>
+            </column>
+        </property>
+        <property name="highVoltage" type="string">
+            <column name="highVoltage" length="20">
+                <comment>0x13&#184;&#223;&#209;&#185;&#177;&#168;&#190;&#175;&#227;&#208;&#214;&#181;</comment>
+            </column>
+        </property>
+        <property name="tiredDrive" type="string">
+            <column name="tiredDrive" length="20">
+                <comment>0x14&#198;&#163;&#192;&#205;&#188;&#221;&#202;&#187;&#202;&#177;&#188;&#228;&#227;&#208;&#214;&#181;</comment>
+            </column>
+        </property>
+        <property name="tiredDriveTime" type="string">
+            <column name="tiredDriveTime" length="20">
+                <comment>0x15&#189;&#226;&#179;&#253;&#198;&#163;&#192;&#205;&#188;&#221;&#202;&#187;&#202;&#177;&#188;&#228;&#227;&#208;&#214;&#181;</comment>
+            </column>
+        </property>
+        <property name="waterTemp" type="string">
+            <column name="waterTemp" length="20">
+                <comment>0x16&#203;&#174;&#206;&#194;&#184;&#223;&#177;&#168;&#190;&#175;&#227;&#208;&#214;&#181;</comment>
+            </column>
+        </property>
+        <property name="userId" type="string">
+            <column name="userId" length="50">
+                <comment>0x18&#201;&#232;&#214;&#195;&#211;&#195;&#187;&#167;id</comment>
+            </column>
+        </property>
+        <property name="ebrake" type="string">
+            <column name="ebrake" length="20">
+                <comment>0x1e(&#188;&#177;&#201;&#178;&#179;&#181;&#207;&#181;&#202;&#253;&#199;&#191;&#182;&#200;)</comment>
+            </column>
+        </property>
+        <property name="espeedup" type="string">
+            <column name="espeedup" length="20">
+                <comment>0x21(&#188;&#177;&#188;&#211;&#203;&#217;&#207;&#181;&#202;&#253;&#199;&#191;&#182;&#200;)</comment>
+            </column>
+        </property>
+        <property name="crash" type="string">
+            <column name="crash" length="20">
+                <comment>0x23(&#197;&#246;&#215;&#178;&#177;&#168;&#190;&#175;&#207;&#181;&#202;&#253;&#199;&#191;&#182;&#200;)</comment>
+            </column>
+        </property>
+        <property name="shake" type="string">
+            <column name="shake" length="20">
+                <comment>0x24(&#178;&#188;&#183;&#192;&#202;&#177;&#213;&#240;&#182;&#175;&#177;&#168;&#190;&#175;&#207;&#181;&#202;&#253;&#199;&#191;&#182;&#200;)</comment>
+            </column>
+        </property>
+        <property name="speedRemind" type="string">
+            <column name="speedRemind" length="20">
+                <comment>0x27(&#203;&#217;&#182;&#200;&#204;&#225;&#208;&#209;&#191;&#170;&#185;&#216;&#197;&#228;&#214;&#195;)</comment>
+            </column>
+        </property>
+        <property name="imei" type="string">
+            <column name="IMEI" length="20">
+                <comment>0x28(IMEI&#214;&#187;&#182;&#193;)</comment>
+            </column>
+        </property>
+        <property name="dataUploadTime" type="string">
+            <column name="dataUploadTime" length="20">
+                <comment>0x30(obd&#202;&#253;&#190;&#221;&#187;&#227;&#177;&#168;&#188;&#228;&#184;&#244;)</comment>
+            </column>
+        </property>
+        <property name="dataUploadType" type="string">
+            <column name="dataUploadType" length="20">
+                <comment>0x2c(obd&#202;&#253;&#190;&#221;&#187;&#227;&#177;&#168;&#178;&#223;&#194;&#212;)</comment>
+            </column>
+        </property>
+        <property name="positionExtra" type="string">
+            <column name="positionExtra" length="50">
+                <comment>0x2d(&#201;&#207;&#180;&#171;&#184;&#189;&#188;&#211;&#206;&#187;&#214;&#195;&#208;&#197;&#207;&#162;1)</comment>
+            </column>
+        </property>
+        <property name="gsmbts" type="string">
+            <column name="GSMBTS" length="50">
+                <comment>
+                0x2e(&#187;&#249;&#213;&#190;&#182;&#168;&#206;&#187;&#202;&#177;GSM&#187;&#249;&#213;&#190;&#208;&#197;&#207;&#162;&#196;&#218;&#200;&#221;&#163;&#169;</comment>
+            </column>
+        </property>
+        <property name="communication" type="string">
+            <column name="communication" length="10">
+                <comment>0x31(&#205;&#168;&#208;&#197;&#196;&#163;&#191;&#233;&#192;&#224;&#208;&#205;)</comment>
+            </column>
+        </property>
+        <property name="positionType" type="string">
+            <column name="positionType" length="10">
+                <comment>0x32(&#182;&#168;&#206;&#187;&#196;&#163;&#191;&#233;&#192;&#224;&#208;&#205;)</comment>
+            </column>
+        </property>
+        <property name="createTime" type="timestamp">
+            <column name="create_time" length="19">
+                <comment>&#180;&#180;&#189;&#168;&#202;&#177;&#188;&#228;</comment>
+            </column>
+        </property>
+        <property name="valid" type="java.lang.Character">
+            <column name="valid" length="1">
+                <comment>&#202;&#199;&#183;&#241;&#211;&#208;&#208;&#167;,T &#211;&#208;&#208;&#167;,F&#206;&#222;&#208;&#167;</comment>
+            </column>
+        </property>
+        <property name="remark" type="string">
+            <column name="remark" length="200">
+                <comment>&#177;&#184;&#215;&#162;</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

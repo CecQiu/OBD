@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN"
+    "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<include file="struts-system.xml"></include>
+	<include file="struts-application.xml"></include>
+	<constant name="struts.action.extension" value="do,," />
+	<constant name="struts.objectFactory" value="spring" />
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+	<constant name="struts.configuration.xml.reload" value="true" />
+	<constant name="struts.devMode" value="true" />
+	<constant name="struts.multipart.saveDir" value="/tmp" />
+    <constant name="struts.action.excludePattern" value="/druid/.*"/><!--排除拦截地址 -->
+
+	<package name="default" extends="struts-default,json-default">
+		<interceptors>
+			<interceptor name="permission" class="permissionInterceptor" />
+			<interceptor name="error" class="errorInterceptor" />
+			<interceptor-stack name="permissionStack">
+				<interceptor-ref name="error" />
+				<interceptor-ref name="permission" />
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+		</interceptors>
+
+		<global-results>
+			<result name="error">/WEB-INF/jsp/error.jsp</result>
+			<result name="relogin">/WEB-INF/jsp/relogin.jsp</result>
+			<result name="login" type="redirect">/login.do?username=${username}
+			</result>
+			<result name="logout" type="redirect">${redirectUrl}</result>
+			<!-- <result name="redirect" type="redirect">${redirectUrl}</result> -->
+			<result name="redirect" type="redirect">
+				<param name="location">${redirectUrl}</param>
+				<param name="message">${message}</param>
+				<param name="encode">true</param>
+			</result>
+			<result name="redirectAction" type="redirectAction">
+				<param name="actionName">${redirectAction}</param>
+				<param name="message">${message}</param>
+				<param name="encode">true</param>
+			</result>
+			<result name="userLogin" type="redirect">/login.html</result>
+			<result name="userLogout" type="redirect">/shop_index.html?shopId=${shopId}
+			</result>
+			<result name="shopHome" type="redirect">/shop_index.html</result>
+		</global-results>
+		<!--<global-exception-mappings> -->
+		<!--<exception-mapping result="error" exception="java.lang.Exception"></exception-mapping> -->
+		<!--</global-exception-mappings> -->
+
+
+		<action name="randomCode" method="getRandomCode" class="randomAction"></action>
+		<action name="login" method="login" class="adminAction">
+			<result name="login">/WEB-INF/jsp/login.jsp</result>
+			<result name="success" type="redirect">/admin/sys_index.do</result>
+		</action>
+
+	</package>
+	
+	<package name="obdApi" namespace="/api/obd" extends="default">
+		<action name="queryCurrentLocation" method="entryInterface" class="queryCurrentLocationAction"></action>
+		<action name="monitorFault" method="entryInterface" class="obdApi"></action>
+		<action name="queryPetrol" method="entryInterface" class="obdApi"></action>
+		<action name="optimizeDrive" method="entryInterface" class="obdApi"></action>
+		<action name="queryRunningTrack" method="entryInterface" class="obdApi"></action>
+		<!-- unUseful -->
+		<action name="sendType" method="entryInterface" class="obdApi"></action>
+		<action name="controlGps" method="entryInterface" class="obdApi"></action>
+		<action name="controlWifi" method="entryInterface" class="obdApi"></action>
+		<!-- unUseful -->
+		<action name="queryBindInfo" method="entryInterface" class="obdApi"></action>
+		<!-- unUseful -->
+		<action name="queryWarningInfo" method="entryInterface" class="obdApi"></action>
+		
+		<action name="queryPushOptimizeInfo" method="entryInterface" class="obdApi"></action>
+		<!-- unUseful -->
+		<action name="queryRunningTrackHis" method="entryInterface" class="obdApi"></action>
+		<!-- unUseful -->
+		<action name="queryPetrolHis" method="entryInterface" class="obdApi"></action>
+		<action name="queryDeviceStatus" method="entryInterface" class="obdApi"></action>
+		<action name="queryNetFlow" method="entryInterface" class="obdApi"></action>
+		<action name="unBind" method="entryInterface" class="obdApi"></action>
+		<action name="queryCurrentObdInfo" method="entryInterface" class="obdApi"></action>
+		<!-- unUseful -->
+		<action name="setOBDBarrier" method="entryInterface" class="obdApi"></action>
+		<!-- unUseful -->
+		<action name="getCarInfo" method="entryInterface" class="obdApi"></action>
+		<!-- <action name="portal" method="entryInterface" class="obdApi"></action> -->
+		<action name="obdSnChange" method="entryInterface" class="obdApi"></action>
+		<action name="driveBehaviour" method="entryInterface" class="obdApi"></action>
+		<action name="wifiUseTime" method="entryInterface" class="obdApi"></action>
+		<action name="setdriveBehaviour" method="entryInterface" class="obdApi"></action>
+		<action name="wifiPwdAndName" method="entryInterface" class="obdApi"></action>
+		<action name="alarmSwitch" method="entryInterface" class="obdApi"></action>
+		<action name="alarmSwitchState" method="entryInterface" class="obdApi"></action>
+		<action name="domain" method="entryInterface" class="domainAction"></action>
+		<action name="domainQuery" method="entryInterface" class="domainQueryAction"></action>
+		<action name="fenceSet" method="entryInterface" class="dzwlAction"></action>
+		<action name="fenceQuery" method="entryInterface" class="dzwlQueryAction"></action>
+		<action name="guard" method="entryInterface" class="guardAction"></action>
+		<action name="queryGuard" method="entryInterface" class="queryGuardAction"></action>
+		<action name="carType" method="entryInterface" class="carTypeAction"></action>
+		<action name="queryMiles" method="entryInterface" class="queryMilesAction"></action>
+		<action name="wakeup" method="entryInterface" class="wakeupAction"></action>
+		<action name="wakeupQuery" method="entryInterface" class="wakeupQueryAction"></action>
+		<action name="bind" method="entryInterface" class="bindAction"></action>
+		<action name="portal" method="entryInterface" class="portalHandleAction"></action>
+	</package>
+	<!-- 固件升级 -->
+	<package name="upgradeHandle" namespace="/services/upgrade" extends="default">
+		<action name="*" method="entryInterface" class="upgradeHandle">
+		</action>
+	</package>
+	
+	<!-- Test -->
+	<package name="test" namespace="/test" extends="default">
+		<action name="*" method="{1}" class="testOBDAction">
+			<result name="test">/test/test.jsp</result>
+			<result name="test1">/test/test1.jsp</result>
+			<result name="testQuery">/test/testQuery.jsp</result>
+		</action>
+	</package>
+	
+	<!-- Test<default-interceptor-ref name="permissionStack" /> -->
+	<package name="/testOBD" namespace="/testOBD" extends="default">
+		
+		<action name="*LogDownTestAction" method="{1}" class="logDownTestAction">
+			<result name="listFiles">/WEB-INF/jsp/system/test/logFiles.jsp</result>
+		</action>
+		<action name="*FOTAAction" method="{1}" class="testFOTAAction">
+			<result name="testFOTA">/WEB-INF/jsp/system/test/testFOTA.jsp</result>
+		</action>
+		<action name="*EFenceAction" method="{1}" class="testEFenceAction">
+			 <result name="testEFence">/WEB-INF/jsp/system/test/testEFence.jsp</result>
+		</action>
+		
+		<action name="*" method="{1}" class="obdTestAction">
+			<result name="test">/WEB-INF/jsp/system/test/test.jsp</result>
+            <result name="test1">/WEB-INF/jsp/system/test/test1.jsp</result>
+            <result name="testQuery">/WEB-INF/jsp/system/test/testQuery.jsp</result>
+		</action>
+		
+	</package>
+	
+</struts>

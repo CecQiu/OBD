@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.hgsoft.carowner.entity.CarDriveInfo" table="car_drive_info">
+        <id name="driveInfoId" type="java.lang.String">
+            <column name="driveInfoId"/>
+            <generator class="assigned" />
+        </id>
+        <property name="carId" type="java.lang.String">
+            <column name="carId"/>
+        </property>
+        <property name="obdSn" type="java.lang.String">
+            <column name="obdSn"/>
+        </property>
+        <property name="tmsSpeeding" type="java.lang.Integer">
+            <column name="tmsSpeeding"/>
+        </property>
+        <property name="tmsFatigue" type="java.lang.Integer">
+            <column name="tmsFatigue"/>
+        </property>
+        <property name="tmsRapDec" type="java.lang.Integer">
+            <column name="tmsRapDec"/>
+        </property>
+        <property name="tmsRapAcc" type="java.lang.Integer">
+            <column name="tmsRapAcc"/>
+        </property>
+        <property name="highSpeed" type="java.lang.Integer">
+            <column name="highSpeed"/>
+        </property>
+        <property name="tmsSharpTurn" type="java.lang.Integer">
+            <column name="tmsSharpTurn"/>
+        </property>
+        <property name="notMatch" type="java.lang.Integer">
+            <column name="notMatch"/>
+        </property>
+        <property name="longLowSpeed" type="java.lang.Integer">
+            <column name="longLowSpeed"/>
+        </property>
+        <property name="tmsBrakes" type="java.lang.Integer">
+            <column name="tmsBrakes"/>
+        </property>
+        <property name="tmsSteep" type="java.lang.Integer">
+            <column name="tmsSteep"/>
+        </property>
+        <property name="avSpeed" type="java.lang.Double">
+            <column name="avSpeed"/>
+        </property>
+        <property name="driveDate" type="java.util.Date">
+            <column name="driveDate"/>
+        </property>
+        <property name="type" type="java.lang.Integer">
+            <column name="type"/>
+        </property>
+    </class>
+</hibernate-mapping>

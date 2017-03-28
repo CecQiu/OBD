@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-7-29 17:16:29 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping package="com.hgsoft.carowner.entity">
+    <class name="Efence" table="efence">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="obdSn" type="string">
+            <column name="obdSN" length="50" not-null="true">
+                <comment>设备号;</comment>
+            </column>
+        </property>
+        <property name="type" type="string">
+            <column name="type" length="50">
+                <comment></comment>
+            </column>
+        </property>
+        <property name="railAndAlert" type="string">
+            <column name="railAndAlert" length="2">
+                <comment></comment>
+            </column>
+        </property>
+        <property name="areaNum" type="string">
+            <column name="areaNum" length="10">
+                <comment></comment>
+            </column>
+        </property>
+        <property name="maxLongitude" type="string">
+            <column name="maxLongitude" length="20">
+                <comment></comment>
+            </column>
+        </property> 
+        <property name="maxLatitude" type="string">
+            <column name="maxLatitude" length="20"/>
+        </property>
+         <property name="minLongitude" type="string">
+            <column name="minLongitude" length="20"/>
+        </property>
+         <property name="minLatitude" type="string">
+            <column name="minLatitude" length="20"/>
+        </property>
+         <property name="startDate" type="java.util.Date">
+            <column name="startDate" />
+        </property>
+         <property name="endDate" type="java.util.Date">
+            <column name="endDate" />
+        </property>
+         <property name="isChange" type="string">
+            <column name="isChange" length="2"/>
+        </property>
+        <property name="createTime" type="java.util.Date">
+            <column name="create_time" />
+        </property>
+        <property name="updateTime" type="java.util.Date">
+            <column name="update_time" />
+        </property>
+        <property name="valid" type="string">
+            <column name="valid" />
+        </property>
+    </class>
+</hibernate-mapping>

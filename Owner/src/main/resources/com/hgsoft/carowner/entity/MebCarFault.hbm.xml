@@ -1,0 +1,219 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-8-10 17:26:51 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping package="com.hgsoft.carowner.entity">
+    <class name="MebCarFault" table="meb_car_fault">
+        <id name="faultId" type="string">
+            <column name="faultId" length="30" />
+            <generator class="assigned" />
+        </id>
+        <property name="carId" type="string">
+            <column name="carId" length="10">
+                <comment>&#179;&#181;&#193;&#190;&#177;&#224;&#186;&#197;</comment>
+            </column>
+        </property>
+        <property name="obdSn" type="string">
+            <column name="obdSn" length="20" not-null="true">
+                <comment>&#214;&#199;&#196;&#220;&#186;&#208;&#188;&#164;&#187;&#238;&#194;&#235;&#163;&#168;SN&#194;&#235;&#163;&#169;</comment>
+            </column>
+        </property>
+        <property name="faultUpdateTime" type="string">
+            <column name="faultUpdateTime" length="20">
+                <comment>&#202;&#177;&#188;&#228;YYYY-MM-DD hh:mm:ss</comment>
+            </column>
+        </property>
+        <property name="speed" type="string">
+            <column name="speed" length="6">
+                <comment>Obd&#203;&#217;&#182;&#200;</comment>
+            </column>
+        </property>
+        <property name="voltage" type="string">
+            <column name="voltage">
+                <comment>&#181;&#231;&#179;&#216;&#181;&#231;&#209;&#185;</comment>
+            </column>
+        </property>
+        <property name="faultNum" type="string">
+            <column name="faultNum">
+                <comment>&#185;&#202;&#213;&#207;&#194;&#235;&#184;&#246;&#202;&#253;</comment>
+            </column>
+        </property>
+        <property name="faultType" type="string">
+            <column name="faultType">
+                <comment>&#185;&#202;&#213;&#207;&#181;&#198;&#215;&#180;&#204;&#172;</comment>
+            </column>
+        </property>
+        <property name="temperature" type="string">
+            <column name="temperature" length="4">
+                <comment>&#183;&#162;&#182;&#175;&#187;&#250;&#192;&#228;&#200;&#180;&#210;&#186;&#206;&#194;&#182;&#200;</comment>
+            </column>
+        </property>
+        <property name="jinqiYaLi" type="string">
+            <column name="jinqiYaLi" length="4">
+                <comment>&#189;&#248;&#198;&#248;&#198;&#231;&#185;&#220;&#190;&#248;&#182;&#212;&#209;&#185;&#193;&#166;</comment>
+            </column>
+        </property>
+        <property name="rotationalSpeed" type="string">
+            <column name="rotationalSpeed" length="4">
+                <comment>&#183;&#162;&#182;&#175;&#187;&#250;&#215;&#170;&#203;&#217;</comment>
+            </column>
+        </property>
+        <property name="dianHuoOneTiqianJiao" type="string">
+            <column name="dianHuoOneTiqianJiao" length="4">
+                <comment>1&#186;&#197;&#198;&#248;&#184;&#215;&#181;&#227;&#187;&#240;&#202;&#177;&#204;&#225;&#199;&#176;&#189;&#199;</comment>
+            </column>
+        </property>
+        <property name="jinqiTemp" type="string">
+            <column name="jinqiTemp" length="4">
+                <comment>&#189;&#248;&#198;&#248;&#206;&#194;&#182;&#200;</comment>
+            </column>
+        </property>
+        <property name="kongqiLiuliang" type="string">
+            <column name="kongqiLiuliang" length="6">
+                <comment>&#191;&#213;&#198;&#248;&#193;&#247;&#193;&#191;&#180;&#171;&#184;&#208;&#198;&#247;&#181;&#196;&#191;&#213;&#198;&#248;&#193;&#247;&#193;&#191;</comment>
+            </column>
+        </property>
+        <property name="qijiemenWeizi" type="string">
+            <column name="qijiemenWeizi" length="4">
+                <comment>&#190;&#248;&#182;&#212;&#189;&#218;&#198;&#248;&#195;&#197;&#206;&#187;&#214;&#195;</comment>
+            </column>
+        </property>
+        <property name="secKongqiZhuang" type="string">
+            <column name="secKongqiZhuang" length="4">
+                <comment>&#182;&#254;&#180;&#206;&#191;&#213;&#198;&#248;&#215;&#180;&#204;&#172;&#214;&#184;&#193;&#238;</comment>
+            </column>
+        </property>
+        <property name="o2weizi" type="string">
+            <column name="o2Weizi" length="4">
+                <comment>&#209;&#245;&#180;&#171;&#184;&#208;&#198;&#247;&#181;&#196;&#206;&#187;&#214;&#195;</comment>
+            </column>
+        </property>
+        <property name="fadongJiStart" type="string">
+            <column name="fadongJiStart" length="4">
+                <comment>&#215;&#212;&#183;&#162;&#182;&#175;&#187;&#250;&#198;&#240;&#182;&#175;&#181;&#196;&#202;&#177;&#188;&#228;7d</comment>
+            </column>
+        </property>
+        <property name="faultDriveNum" type="string">
+            <column name="faultDriveNum" length="4">
+                <comment>
+                &#212;&#218;&#185;&#202;&#213;&#207;&#214;&#184;&#202;&#190;&#181;&#198;&#188;&#164;&#187;&#238;&#215;&#180;&#204;&#172;&#207;&#194;&#208;&#208;&#202;&#187;&#181;&#196;&#192;&#239;&#179;&#204;7e</comment>
+            </column>
+        </property>
+        <property name="jgyouguiYali" type="string">
+            <column name="jGYouguiYali" length="4">
+                <comment>
+                &#207;&#224;&#182;&#212;&#211;&#218;&#198;&#231;&#185;&#220;&#213;&#230;&#191;&#213;&#182;&#200;&#181;&#196;&#211;&#205;&#185;&#236;&#209;&#185;&#193;&#166;7f</comment>
+            </column>
+        </property>
+        <property name="dqyouguiYali" type="string">
+            <column name="dQYouguiYali" length="4">
+                <comment>
+                &#207;&#224;&#182;&#212;&#211;&#218;&#180;&#243;&#198;&#248;&#209;&#185;&#193;&#166;&#181;&#196;&#211;&#205;&#185;&#236;&#209;&#185;&#193;&#166;80</comment>
+            </column>
+        </property>
+        <property name="feiqiXunhuan" type="string">
+            <column name="feiqiXunhuan" length="4">
+                <comment>&#183;&#207;&#198;&#248;&#212;&#217;&#209;&#173;&#187;&#183;&#207;&#181;&#205;&#179;&#214;&#184;&#193;&#238;&#191;&#170;&#182;&#200;81</comment>
+            </column>
+        </property>
+        <property name="egrkaidu" type="string">
+            <column name="eGRkaidu" length="4">
+                <comment>EGR&#191;&#170;&#182;&#200;&#206;&#243;&#178;&#238; (&#202;&#181;&#188;&#202;&#191;&#170;&#182;&#200; &#161;&#170;
+                &#214;&#184;&#193;&#238;&#191;&#170;&#182;&#200;)/&#214;&#184;&#193;&#238;&#191;&#170;&#182;&#200;*100</comment>
+            </column>
+        </property>
+        <property name="zhengfaChongxi" type="string">
+            <column name="zhengfaChongxi" length="4">
+                <comment>&#213;&#244;&#183;&#162;&#179;&#229;&#207;&#180;&#191;&#216;&#214;&#198;&#214;&#184;&#193;&#238;</comment>
+            </column>
+        </property>
+        <property name="ranyouYewei" type="string">
+            <column name="ranyouYewei" length="4">
+                <comment>&#200;&#188;&#211;&#205;&#210;&#186;&#206;&#187;&#202;&#228;&#200;&#235;</comment>
+            </column>
+        </property>
+        <property name="zhengfaYali" type="string">
+            <column name="zhengfaYali" length="4">
+                <comment>&#213;&#244;&#183;&#162;&#207;&#181;&#205;&#179;&#181;&#196;&#213;&#244;&#198;&#248;&#209;&#185;&#193;&#166;</comment>
+            </column>
+        </property>
+        <property name="daqiya" type="string">
+            <column name="daqiya" length="4">
+                <comment>&#180;&#243;&#198;&#248;&#209;&#185;</comment>
+            </column>
+        </property>
+        <property name="xiangduiQijiemen" type="string">
+            <column name="xiangduiQijiemen" length="4">
+                <comment>&#207;&#224;&#182;&#212;&#189;&#218;&#198;&#248;&#195;&#197;&#206;&#187;&#214;&#195;</comment>
+            </column>
+        </property>
+        <property name="huanjinTemp" type="string">
+            <column name="huanjinTemp" length="4">
+                <comment>&#187;&#183;&#190;&#179;&#191;&#213;&#198;&#248;&#206;&#194;&#182;&#200;</comment>
+            </column>
+        </property>
+        <property name="youqimenB" type="string">
+            <column name="youqimenB" length="4">
+                <comment>&#190;&#248;&#182;&#212;&#189;&#218;&#198;&#248;&#195;&#197;&#206;&#187;&#214;&#195;B</comment>
+            </column>
+        </property>
+        <property name="youqimenC" type="string">
+            <column name="youqimenC" length="4">
+                <comment>&#190;&#248;&#182;&#212;&#189;&#218;&#198;&#248;&#195;&#197;&#206;&#187;&#214;&#195;C a9</comment>
+            </column>
+        </property>
+        <property name="jiasutaBanD" type="string">
+            <column name="jiasutaBanD" length="4">
+                <comment>&#188;&#211;&#203;&#217;&#204;&#164;&#176;&#229;&#206;&#187;&#214;&#195;D aa</comment>
+            </column>
+        </property>
+        <property name="jiasutaBanE" type="string">
+            <column name="jiasutaBanE" length="4">
+                <comment>&#188;&#211;&#203;&#217;&#204;&#164;&#176;&#229;&#206;&#187;&#214;&#195;E ab</comment>
+            </column>
+        </property>
+        <property name="jiasutaBanF" type="string">
+            <column name="jiasutaBanF" length="4">
+                <comment>&#188;&#211;&#203;&#217;&#204;&#164;&#176;&#229;&#206;&#187;&#214;&#195;F ac</comment>
+            </column>
+        </property>
+        <property name="qijiemenKongziad" type="string">
+            <column name="qijiemenKongziad" length="4">
+                <comment>&#189;&#218;&#198;&#248;&#195;&#197;&#214;&#180;&#208;&#208;&#198;&#247;&#191;&#216;&#214;&#198;&#214;&#184;&#193;&#238; ad</comment>
+            </column>
+        </property>
+        <property name="faultFadongjiRun" type="string">
+            <column name="faultFadongjiRun" length="4">
+                <comment>
+                &#185;&#202;&#213;&#207;&#214;&#184;&#202;&#190;&#181;&#198;&#180;&#166;&#211;&#218;&#188;&#164;&#187;&#238;&#215;&#180;&#204;&#172;&#207;&#194;&#181;&#196;&#183;&#162;&#182;&#175;&#187;&#250;&#212;&#203;&#215;&#170;&#202;&#177;&#188;&#228;
+                ae</comment>
+            </column>
+        </property>
+        <property name="youguijueduiyaLic1" type="string">
+            <column name="youguijueduiyaLic1" length="4">
+                <comment>&#211;&#205;&#185;&#236;&#190;&#248;&#182;&#212;&#209;&#185;&#193;&#166; c1</comment>
+            </column>
+        </property>
+        <property name="jiasutaBanFc2" type="string">
+            <column name="jiasutaBanFC2" length="4">
+                <comment>&#188;&#211;&#203;&#217;&#204;&#164;&#176;&#229;&#207;&#224;&#182;&#212;&#206;&#187;&#214;&#195; c2</comment>
+            </column>
+        </property>
+        <property name="jiyouTemp" type="string">
+            <column name="jiyouTemp" length="10">
+                <comment>&#183;&#162;&#182;&#175;&#187;&#250;&#187;&#250;&#211;&#205;&#206;&#194;&#182;&#200; c4</comment>
+            </column>
+        </property>
+        <property name="dongjieFault" type="string">
+            <column name="dongjieFault" length="4">
+                <comment>&#182;&#179;&#189;&#225;&#214;&#161;&#181;&#196;&#185;&#202;&#213;&#207;&#194;&#235;03</comment>
+            </column>
+        </property>
+        <property name="obdBefore" type="string">
+            <column name="obdBefore" length="4">
+                <comment>
+                &#201;&#232;&#177;&#184;&#215;&#176;&#179;&#181;&#186;&#243;&#208;&#208;&#202;&#187;&#181;&#196;&#192;&#239;&#179;&#204;(KM)(&#212;&#218;&#178;&#206;&#202;&#253;&#193;&#208;&#177;&#237;&#214;&#208;&#197;&#228;&#214;&#195;&#201;&#207;&#180;&#171;&#180;&#206;&#215;&#214;&#182;&#206;&#181;&#196;&#202;&#177;&#186;&#242;&#178;&#197;&#187;&#225;&#211;&#208;&#180;&#203;&#182;&#206;&#202;&#253;&#190;&#221;&#163;&#172;&#196;&#172;&#200;&#207;&#195;&#187;&#211;&#208;&#180;&#203;&#182;&#206;&#202;&#253;&#190;&#221;)</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

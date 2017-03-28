@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-8-27 14:33:49 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping package="com.hgsoft.carowner.entity">
+    <class name="ObdUpgrade" table="obd_upgrade" dynamic-update="true">
+        <id name="id" type="string">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <property name="fileName" type="string" update="false">
+            <column name="filename" />
+        </property>
+        <property name="version" type="string" update="false">
+            <column name="version" />
+        </property>
+        <property name="firmType" type="java.lang.Integer" update="false">
+            <column name="firmType" />
+        </property>
+        <property name="firmVersion" type="string" update="false">
+            <column name="firmVersion" />
+        </property>
+        <property name="size" type="java.lang.Long" update="false">
+            <column name="size" />
+        </property>
+        <property name="file" type="materialized_blob" update="false">
+            <column name="file" />
+        </property>
+        <property name="memo" type="string" update="false">
+            <column name="memo" />
+        </property>
+        <property name="createTime" type="java.util.Date" update="false">
+            <column name="create_time" />
+        </property>
+        <property name="updateTime" type="java.util.Date" >
+            <column name="update_time" />
+        </property>
+        <property name="auditOper" type="string">
+            <column name="audit_oper" />
+        </property>
+        <property name="auditTime" type="java.util.Date">
+            <column name="audit_time" />
+        </property>
+        <property name="auditState" type="string">
+            <column name="audit_state" />
+        </property>
+        <property name="auditMsg" type="string">
+            <column name="audit_msg" />
+        </property>
+        <property name="auditSend" type="string">
+            <column name="audit_send" />
+        </property>
+        <property name="valid" type="string">
+            <column name="valid" />
+        </property>
+    </class>
+</hibernate-mapping>

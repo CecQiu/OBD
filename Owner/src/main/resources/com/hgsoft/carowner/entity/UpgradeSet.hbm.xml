@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-9-7 16:22:15 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping  package="com.hgsoft.carowner.entity">
+    <class name="UpgradeSet" table="upgrade_set">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="obdSn" type="string">
+            <column name="obdSn" length="50">
+                <comment>obd设备号</comment>
+            </column>
+        </property>
+        <property name="auditOper" type="string">
+            <column name="audit_oper" length="50">
+                <comment>审核人</comment>
+            </column>
+        </property>
+        <property name="auditTime" type="timestamp">
+            <column name="audit_time" length="19">
+                <comment>审核时间</comment>
+            </column>
+        </property>
+        <property name="auditState" type="string">
+            <column name="audit_state" length="1">
+                <comment>审核结果</comment>
+            </column>
+        </property>
+        <property name="version" type="string">
+            <column name="version" length="50">
+                <comment>远程升级版本号;</comment>
+            </column>
+        </property>
+        <property name="firmVersion" type="string" update="false">
+            <column name="firmVersion" />
+        </property>
+        <property name="sendFlag" type="string">
+            <column name="send_flag"/>
+        </property>
+        <property name="createTime" type="timestamp">
+            <column name="create_time" length="19">
+                <comment>&#180;&#180;&#189;&#168;&#202;&#177;&#188;&#228;</comment>
+            </column>
+        </property>
+        <property name="updateTime" type="timestamp">
+            <column name="update_time" length="19">
+                <comment>&#180;&#180;&#189;&#168;&#202;&#177;&#188;&#228;</comment>
+            </column>
+        </property>
+        <property name="valid" type="string">
+            <column name="valid" length="1">
+                <comment>是否下发升级请求0是1否</comment>
+            </column>
+        </property>
+        <property name="validTrue" type="string">
+            <column name="valid_true" length="1"></column>
+        </property>
+        <property name="upgradeFlag" type="string">
+            <column name="upgrade_flag" length="2">
+                <comment>升级状态</comment>
+            </column>
+        </property>
+        <property name="vflag" type="string">
+            <column name="vflag" length="1">
+                <comment>是否有效0无效1有效</comment>
+            </column>
+        </property>
+        <property name="firmType" type="java.lang.Integer">
+            <column name="firmType" />
+        </property>
+        <property name="sendedCount" type="java.lang.Integer">
+            <column name="sendedCount" />
+        </property>
+        <property name="success" type="java.lang.Integer">
+            <column name="success" />
+        </property>
+        
+        <property name="obdSpeed" type="java.lang.Integer">
+            <column name="obdSpeed" />
+        </property>
+        <property name="gpsSpeed" type="java.lang.Integer">
+            <column name="gpsSpeed" />
+        </property>
+        <property name="speedCount" type="java.lang.Integer">
+            <column name="speedCount" />
+        </property>
+        <property name="lastSpeedType" type="string">
+            <column name="lastSpeedType" />
+        </property>
+    </class>
+</hibernate-mapping>

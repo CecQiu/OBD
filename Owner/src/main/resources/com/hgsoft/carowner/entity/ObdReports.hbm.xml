@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-8-27 14:33:49 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping package="com.hgsoft.carowner.entity">
+    <class name="ObdReports" table="obd_reports">
+        <id name="id" type="integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="type" type="integer">
+            <column name="type" />
+        </property>
+        <property name="count" type="integer">
+            <column name="count" />
+        </property>
+        <property name="date" type="java.util.Date">
+            <column name="date" />
+        </property>
+        <property name="createTime" type="java.util.Date">
+            <column name="createTime" />
+        </property>
+    </class>
+</hibernate-mapping>

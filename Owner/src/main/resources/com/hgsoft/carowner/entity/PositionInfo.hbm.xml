@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.hgsoft.carowner.entity.PositionInfo" table="position_info">
+        <id name="id" type="java.lang.String">
+            <column name="id" not-null="true"/>
+            <generator class="assigned" />
+        </id>
+        <property name="obdSn" type="java.lang.String">
+            <column name="obdSn" not-null="true"/>
+        </property>
+        <property name="insertTime" type="java.util.Date">
+            <column name="insertTime"/>
+        </property>
+        <property name="statusGPS" type="java.lang.Integer">
+            <column name="statusGPS"/>
+        </property>
+        <property name="type" type="java.lang.Integer">
+            <column name="type"/>
+        </property>
+        <property name="timeType" type="java.lang.Integer">
+            <column name="timeType"/>
+        </property>
+         <property name="time" type="java.util.Date">
+            <column name="time"/>
+        </property>
+        <property name="longitudeType" type="java.lang.Integer">
+            <column name="longitudeType"/>
+        </property>
+        <property name="longitude" type="java.lang.String">
+            <column name="longitude"/>
+        </property>
+        <property name="latitudeType" type="java.lang.Integer">
+            <column name="latitudeType"/>
+        </property>
+        <property name="latitude" type="java.lang.String">
+            <column name="latitude"/>
+        </property>
+        <property name="directionAngle" type="java.lang.Integer">
+            <column name="directionAngle"/>
+        </property>
+        <property name="gpsSpeed" type="java.lang.Integer">
+            <column name="gpsSpeed"/>
+        </property>
+        <property name="obdSpeed" type="java.lang.Integer">
+            <column name="obdSpeed"/>
+        </property>
+        <property name="engineTurns" type="java.lang.Integer">
+            <column name="engineTurns"/>
+        </property>
+        <property name="engineTemperature" type="java.lang.Integer">
+            <column name="engineTemperature"/>
+        </property>
+        <property name="satelliteSys" type="java.lang.String">
+            <column name="satelliteSys"/>
+        </property>
+        <property name="satellites" type="java.lang.Integer">
+            <column name="satellites"/>
+        </property>
+        <property name="satelliteStrength" type="java.lang.Integer">
+            <column name="satelliteStrength"/>
+        </property>
+        <property name="netType" type="java.lang.String">
+            <column name="netType"/>
+        </property>
+        <property name="mcc" type="java.lang.String">
+            <column name="mcc"/>
+        </property>
+        <property name="mnc" type="java.lang.String">
+            <column name="mnc"/>
+        </property>
+        <property name="sid" type="java.lang.String">
+            <column name="sid"/>
+        </property>
+        <property name="nid" type="java.lang.String">
+            <column name="nid"/>
+        </property>
+        <property name="bid" type="java.lang.String">
+            <column name="bid"/>
+        </property>
+        <property name="oprecision" type="java.lang.String">
+            <column name="oprecision"/>
+        </property>
+    </class>
+</hibernate-mapping>

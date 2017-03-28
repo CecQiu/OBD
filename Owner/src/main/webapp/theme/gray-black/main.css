@@ -1,0 +1,42 @@
+body{ background-color:#2e3740;font-family:"微软雅黑","宋体";}
+.content {
+    background: none repeat scroll 0px 0px rgb(238, 238, 238);
+}
+.nav > li > a:hover, .nav > li > a:focus {
+	background-color:#333;
+}
+.table{font-size:12px;border-collapse:collapse;}
+.table td,.table thead th{ vertical-align:middle;  }
+.table .center td,.table .center th{ text-align:center; }
+.table th {
+	height: auto;
+	font-size: 13px;
+	padding: 5px 10px 5px;
+	border-bottom: 0;
+	text-align: center;
+	vertical-align:middle;
+	color: #666666;
+}
+.widget-title, .modal-header, .table th, div.dataTables_wrapper .ui-widget-header {
+	 background:#efefef;
+	border-bottom: 1px solid #CDCDCD;
+	height: 36px;
+}
+.table a{ color:rgb(102,102,102); }
+.table a:hover{ color:#999; }
+.table .btn{ color:#efefef;}
+.table .btn:hover{ color:#fff;}
+table .center{ text-align:center; }
+.widget {
+	background: none repeat scroll 0 0 #F9F9F9;
+	border-left: 1px solid #CDCDCD;
+	border-top: 1px solid #CDCDCD;
+	border-right: 1px solid #CDCDCD;
+}
+.widget-bottom {
+    background-color: rgb(239, 239, 239);
+    border-bottom: 1px solid rgb(205, 205, 205);
+}
+.separator.line {
+    background: rgb(205,205,205);
+}

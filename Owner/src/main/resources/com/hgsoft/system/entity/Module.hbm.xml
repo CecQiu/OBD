@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.hgsoft.system.entity.Module" table="tb_Module"  lazy="false">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="native"></generator>
+        </id>
+        <many-to-one name="parent" class="com.hgsoft.system.entity.Module" fetch="select" lazy="false">
+        	<column name="parent" />
+        </many-to-one>
+        <property name="name" type="java.lang.String">
+            <column name="name" length="50" />
+        </property>
+        <property name="url" type="java.lang.String">
+            <column name="url" length="200" />
+        </property>
+        <property name="functions" type="java.lang.String">
+            <column name="functions" length="65535" />
+        </property>
+        <property name="priority" type="java.lang.Integer">
+            <column name="priority" />
+        </property>
+        <property name="display" type="java.lang.Integer">
+            <column name="display" />
+        </property>
+        <property name="level" type="java.lang.Integer">
+            <column name="level" />
+        </property>
+        <property name="remark" type="java.lang.String">
+            <column name="remark" length="200" />
+        </property>
+        <property name="icon" type="java.lang.String">
+            <column name="icon" length="100" />
+        </property>
+        <property name="resource" type="java.lang.Integer">
+            <column name="isResource" sql-type="bit" />
+        </property>
+        <property name="resourceType" type="java.lang.String">
+            <column name="resourceType" length="30" />
+        </property>
+    </class>
+</hibernate-mapping>

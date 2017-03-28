@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-7-29 17:16:29 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping package="com.hgsoft.carowner.entity">
+    <class name="ObdGroup" table="obd_group">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="groupNum" type="string">
+            <column name="groupNum" length="10" not-null="true"></column>
+        </property>
+        <property name="groupName" type="string">
+            <column name="groupName" length="20">
+                <comment></comment>
+            </column>
+        </property>
+        <property name="longitude" type="string">
+            <column name="longitude" length="50">
+                <comment></comment>
+            </column>
+        </property>
+        <property name="latitude" type="string">
+            <column name="latitude" length="50">
+                <comment></comment>
+            </column>
+        </property>
+        <property name="radius" type="string">
+            <column name="radius" length="20">
+                <comment></comment>
+            </column>
+        </property> 
+        <property name="remark" type="string">
+            <column name="remark" length="20"/>
+        </property>
+        <property name="createTime" type="java.util.Date">
+            <column name="create_time" />
+        </property>
+        <property name="updateTime" type="java.util.Date">
+            <column name="update_time" />
+        </property>
+        <property name="valid" type="string">
+            <column name="valid" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-9-7 16:22:15 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping  package="com.hgsoft.carowner.entity">
+    <class name="ObdBatchSet" table="obdBatchSet">
+        <id name="id" type="string">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <property name="obdSn" type="string">
+            <column name="obdSn">
+                <comment>obd设备号</comment>
+            </column>
+        </property>
+        <property name="type" type="string">
+            <column name="type"></column>
+        </property>
+        <property name="version" type="string">
+            <column name="version"></column>
+        </property>
+        <property name="auditOper" type="string">
+            <column name="auditOper">
+                <comment>审核人</comment>
+            </column>
+        </property>
+        <property name="auditTime" type="timestamp">
+            <column name="auditTime" length="19">
+                <comment>审核时间</comment>
+            </column>
+        </property>
+        <property name="auditState" type="java.lang.Integer">
+            <column name="auditState" length="1">
+                <comment>审核结果</comment>
+            </column>
+        </property>
+        
+        <property name="createTime" type="timestamp">
+            <column name="createTime" length="19">
+            </column>
+        </property>
+        <property name="updateTime" type="timestamp">
+            <column name="updateTime" length="19">
+            </column>
+        </property>
+        <property name="valid" type="java.lang.Integer">
+            <column name="valid" length="1">
+            </column>
+        </property>
+        <property name="sendedCount" type="java.lang.Integer">
+            <column name="sendedCount" />
+        </property>
+        <property name="success" type="java.lang.Integer">
+            <column name="success" />
+        </property>
+    </class>
+</hibernate-mapping>

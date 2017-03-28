@@ -1,0 +1,2 @@
+2015-07-09 17:13:46,656 INFO servicePermission[1.] [http-8080-4] 系统管理员(1)执行更新，logData：[id:1,name:系统管理员]调用[com.hgsoft.system.service.AdminService]com.hgsoft.system.service.AdminService.updateAdmin4Enable[参数类型：java.lang.Integer,值：5]
+2015-07-09 17:13:51,481 INFO servicePermission[1.] [http-8080-4] 系统管理员(1)执行更新，logData：[id:1,name:系统管理员]调用[com.hgsoft.system.service.AdminService]com.hgsoft.system.service.AdminService.updateAdmin4Enable[参数类型：java.lang.Integer,值：4]

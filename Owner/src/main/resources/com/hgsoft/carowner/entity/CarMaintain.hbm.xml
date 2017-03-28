@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-8-31 14:09:54 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping package="com.hgsoft.carowner.entity">
+    <class name="CarMaintain" table="car_maintain">
+        <id name="id" type="string">
+            <column name="id" length="18" />
+            <generator class="assigned" />
+        </id>
+        <property name="obdSn" type="string">
+            <column name="obdSn" length="20">
+                <comment>OBD&#201;&#232;&#177;&#184;SN</comment>
+            </column>
+        </property>
+        <property name="carId" type="string">
+            <column name="carId" length="18">
+                <comment>&#179;&#181;&#193;&#190;&#177;&#224;&#186;&#197;</comment>
+            </column>
+        </property>
+        <property name="maintainStatus" type="string">
+            <column name="maintainStatus" length="2">
+                <comment>
+                &#177;&#163;&#209;&#248;&#215;&#180;&#204;&#172;&#163;&#186;00&#206;&#222;&#208;&#232;&#177;&#163;&#209;&#248;&#161;&#162;01&#208;&#232;&#210;&#170;&#177;&#163;&#209;&#248;&#161;&#162;02&#211;&#226;&#198;&#218;&#177;&#163;&#209;&#248;</comment>
+            </column>
+        </property>
+        <property name="orderStatus" type="string">
+            <column name="orderStatus" length="2">
+                <comment>
+                &#182;&#169;&#181;&#165;&#215;&#180;&#204;&#172;&#163;&#186;00&#182;&#169;&#181;&#165;&#200;&#183;&#200;&#207;&#161;&#162;01&#182;&#169;&#181;&#165;&#206;&#180;&#200;&#183;&#200;&#207;</comment>
+            </column>
+        </property>
+        <property name="maintainTime" type="string">
+            <column name="maintainTime" length="20">
+                <comment>&#201;&#207;&#180;&#206;&#177;&#163;&#209;&#248;&#202;&#177;&#188;&#228;</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

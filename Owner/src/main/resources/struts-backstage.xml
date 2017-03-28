@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN"
+        "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+    <package namespace="/admin/backstage" name="backstage" extends="admin">
+    	<!-- 车主服务模块 -->
+        <action name="owners_*" method="{1}" class="ownersAction">
+            <result name="listMalfunction">/WEB-INF/jsp/backstage/owners/failure_reminder.jsp</result>
+            <result name="listMaintenance">/WEB-INF/jsp/backstage/owners/maintenance_reminder.jsp</result>
+            <result name="listViolateRegulations">/WEB-INF/jsp/backstage/owners/illegal_remind.jsp</result>
+            <result name="listCarService">/WEB-INF/jsp/backstage/owners/car_service_reminders.jsp</result>
+            <result name="showMalfunctionDetail">/WEB-INF/jsp/backstage/owners/failure_details.jsp</result>
+        </action>
+        <!-- 营销管理模块 -->
+        <action name="markMang_*" method="{1}" class="marketingManagementAction">
+        	<result name="travelRecords">/WEB-INF/jsp/backstage/marketingManagement/travel_records.jsp</result>
+        </action>
+    </package>
+</struts>

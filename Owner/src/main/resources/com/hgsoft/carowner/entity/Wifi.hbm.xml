@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-9-7 16:22:15 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping  package="com.hgsoft.carowner.entity">
+    <class name="Wifi" table="wifi">
+        <id name="id" type="string">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <property name="obdSn" type="string">
+            <column name="obdSn" length="20">
+                <comment>&#179;&#181;&#193;&#190;id</comment>
+            </column>
+        </property>
+        <property name="ssid" type="string">
+            <column name="ssid" length="20">
+                <comment>&#179;&#181;&#193;&#190;ssid&#186;&#197;</comment>
+            </column>
+        </property>
+        <property name="autu" type="string">
+            <column name="autu" length="2">
+                <comment>WIFI&#185;&#178;&#207;&#237;&#183;&#189;&#202;&#189;&#163;&#186;0 &#163;&#186;open/share,1&#163;&#186; open ,2&#163;&#186; share,3&#163;&#186; wpa,4
+                &#163;&#186;wpa2,5&#163;&#186; wpa/wpa2</comment>
+            </column>
+        </property>
+        <property name="encrypt" type="string">
+            <column name="encrypt" length="2">
+                <comment>Wifi&#195;&#220;&#194;&#235;&#188;&#211;&#195;&#220;&#183;&#189;&#202;&#189;;0 &#163;&#186;null
+                &#163;&#187;1&#163;&#186;WEP&#163;&#187;2&#163;&#186;TKIP&#163;&#187;3&#163;&#186;AES&#163;&#187;4 &#163;&#186;TKIP-AES</comment>
+            </column>
+        </property>
+        <property name="wifiPwd" type="string">
+            <column name="wifi_pwd" length="20">
+                <comment>Wifi&#195;&#220;&#194;&#235;&#163;&#168;&#179;&#164;&#182;&#200;&#178;&#187;&#208;&#161;&#211;&#218;8&#206;&#187;&#163;&#169;</comment>
+            </column>
+        </property>
+        <property name="wifiState" type="string">
+            <column name="wifi_state" length="2">
+                <comment>Wifi&#215;&#180;&#204;&#172;&#163;&#172;4:&#180;&#242;&#191;&#170; 5&#185;&#216;&#177;&#213;</comment>
+            </column>
+        </property>
+        <property name="recovery" type="string">
+            <column name="recovery" length="2">
+                <comment>
+                3&#163;&#186;&#187;&#214;&#184;&#180;&#179;&#246;&#179;&#167;&#201;&#232;&#214;&#195;&#163;&#172;0&#163;&#186;&#210;&#209;&#208;&#222;&#184;&#196;</comment>
+            </column>
+        </property>
+        <property name="createTime" type="timestamp">
+            <column name="create_time" length="19">
+                <comment>&#180;&#180;&#189;&#168;&#202;&#177;&#188;&#228;</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

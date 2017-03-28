@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app
+    version="3.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance http://www.springmodules.org/schema/cache/springmodules-cache.xsd http://www.springmodules.org/schema/cache/springmodules-ehcache.xsd"
+	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	
+	<!-- OBD服务监听器 -->
+	<listener>
+		<listener-class>com.hgsoft.obd.server.ObdServerInit</listener-class>
+	</listener>
+	<!--  旧版协议的，暂去掉
+	<listener>
+		<listener-class>com.hgsoft.common.netty.ServerInit</listener-class>
+	</listener>
+	 -->
+	
+	<listener>
+		<listener-class>com.hgsoft.application.util.TokenListener</listener-class>
+	</listener>
+	<!-- 旧版协议任务监听器，暂去掉
+	<listener>
+		<listener-class>com.hgsoft.carowner.api.ObdStateTask</listener-class>
+	</listener>
+	-->
+		
+	<filter>
+		<filter-name>struts2</filter-name>
+		<filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>struts2</filter-name>
+		<url-pattern>*.do</url-pattern>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<listener>
+		<listener-class>com.hgsoft.carowner.api.ObdUnhandledTask</listener-class>
+	</listener>
+	
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>classpath:applicationContext.xml</param-value>
+	</context-param>
+	<session-config>
+		<session-timeout>30</session-timeout>
+	</session-config>
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+	<mime-mapping>
+		<extension>rar</extension>
+		<mime-type>application/zip</mime-type>
+	</mime-mapping>
+	<mime-mapping>
+		<extension>doc</extension>
+		<mime-type>application/zip</mime-type>
+	</mime-mapping>
+	
+		<!-- druid监控 -->
+	<filter>
+		<filter-name>DruidWebStatFilter</filter-name>
+		<filter-class>com.alibaba.druid.support.http.WebStatFilter</filter-class>
+		<init-param>
+			<param-name>exclusions</param-name>
+			<param-value>*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>DruidWebStatFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	<!-- druid监控统计页面 -->
+	<servlet>
+		<servlet-name>DruidStatView</servlet-name>
+		<servlet-class>com.alibaba.druid.support.http.StatViewServlet</servlet-class>
+		<init-param>
+			<param-name>resetEnable</param-name>
+			<param-value>false</param-value>
+		</init-param>
+		<init-param>  
+	   		<!-- 用户名 -->  
+	   		<param-name>loginUsername</param-name>  
+	    	<param-value>druid</param-value>  
+	    </init-param>  
+	    <init-param>  
+	    	<!-- 密码 -->
+	    	<param-name>loginPassword</param-name>
+	    	<param-value>obd123</param-value>
+	    </init-param>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DruidStatView</servlet-name>
+		<url-pattern>/druid/*</url-pattern>
+	</servlet-mapping>
+	<!-- session统计功能 -->
+	<init-param>
+		<param-name>sessionStatEnable</param-name>
+		<param-value>true</param-value>
+	</init-param>
+	<!-- 配置profileEnable能够监控单个url调用的sql列表 -->
+	<init-param>
+		<param-name>profileEnable</param-name>
+		<param-value>true</param-value>
+	</init-param>
+
+</web-app>

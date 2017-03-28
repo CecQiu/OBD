@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-8-7 14:44:29 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping package="com.hgsoft.carowner.entity">
+    <class name="FaultUpload" table="fault_upload" optimistic-lock="version">
+        <id name="faultId" type="string">
+            <column name="fault_id" length="18" />
+            <generator class="assigned" />
+        </id>
+        <property name="obdSn" type="string">
+            <column name="obdSn" length="100" not-null="true">
+                <comment>&#214;&#213;&#182;&#203;&#206;&#168;&#210;&#187;&#177;&#234;&#202;&#182;&#183;&#251;</comment>
+            </column>
+        </property>
+        <property name="faultTotal" type="java.lang.Integer">
+            <column name="fault_total">
+                <comment>&#185;&#202;&#213;&#207;&#194;&#235;&#184;&#246;&#202;&#253;</comment>
+            </column>
+        </property>
+        <property name="faultCode" type="string">
+            <column name="fault_code">
+                <comment>&#185;&#202;&#213;&#207;&#194;&#235;,&#210;&#212;&#182;&#186;&#186;&#197;&#198;&#180;&#189;&#211;</comment>
+            </column>
+        </property>
+        <property name="createTime" type="timestamp">
+            <column name="create_time" length="19">
+                <comment>&#185;&#202;&#213;&#207;&#201;&#207;&#180;&#171;&#202;&#177;&#188;&#228;</comment>
+            </column>
+        </property>
+        <property name="updateTime" type="timestamp">
+            <column name="update_time" length="19">
+                <comment>更新时间;</comment>
+            </column>
+        </property>
+        <property name="state" type="string">
+            <column name="state" length="1">
+                <comment>有效性,0无效1有效;</comment>
+            </column>
+        </property>
+        <property name="remark" type="string">
+            <column name="remark">
+                <comment>&#177;&#184;&#215;&#162;</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

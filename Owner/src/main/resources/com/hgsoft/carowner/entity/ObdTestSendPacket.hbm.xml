@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-9-7 16:22:15 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping  package="com.hgsoft.carowner.entity">
+    <class name="ObdTestSendPacket" table="obd_testSendPacket">
+        <id name="id" type="string">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <property name="obdSn" type="string">
+            <column name="obdSn" length="50"></column>
+        </property>
+        <property name="typeStr" type="string">
+            <column name="typeStr"/>
+        </property>
+        <property name="msgBody" type="string">
+            <column name="msgBody"/>
+        </property>
+        <property name="result" type="string">
+            <column name="result"/>
+        </property>
+        <property name="sended" type="java.lang.Integer">
+            <column name="sended"/>
+        </property>
+        <property name="sendCount" type="java.lang.Integer">
+            <column name="sendCount"/>
+        </property>
+           <property name="operator" type="string">
+            <column name="operator" length="50"></column>
+        </property>
+        <property name="createTime" type="timestamp">
+            <column name="createTime" length="19"/>
+        </property>
+        <property name="updateTime" type="timestamp">
+            <column name="updateTime" length="19"/>
+        </property>
+    </class>
+</hibernate-mapping>

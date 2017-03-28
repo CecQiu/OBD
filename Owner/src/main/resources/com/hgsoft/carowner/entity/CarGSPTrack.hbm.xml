@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.hgsoft.carowner.entity.CarGSPTrack" table="car_gspTrack">
+        <id name="gspTrackId" type="java.lang.String">
+            <column name="gspTrackId"/>
+            <generator class="assigned" />
+        </id>
+        <property name="obdSn" type="java.lang.String">
+            <column name="obdSn"/>
+        </property>
+        <property name="longitude" type="java.lang.String">
+            <column name="longitude"/>
+        </property>
+        <property name="latitude" type="java.lang.String">
+            <column name="latitude"/>
+        </property>
+        <property name="directionAngle" type="java.lang.Integer">
+            <column name="directionAngle"/>
+        </property>
+        <property name="gpsSpeed" type="java.lang.Integer">
+            <column name="gpsSpeed"/>
+        </property>
+        <property name="obdSpeed" type="java.lang.Integer">
+            <column name="obdSpeed"/>
+        </property>
+        <property name="high" type="java.lang.String">
+            <column name="high"/>
+        </property>
+        <property name="gspTrackTime" type="timestamp">
+            <column name="gspTrackTime"/>
+        </property>
+    </class>
+</hibernate-mapping>

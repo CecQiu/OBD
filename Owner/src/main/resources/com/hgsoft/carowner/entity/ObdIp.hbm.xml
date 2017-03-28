@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-7-28 10:44:11 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping package="com.hgsoft.carowner.entity">
+    <class name="ObdIp" table="obd_ip" optimistic-lock="version">
+        <id name="obdIpId" type="string">
+            <column name="obd_ip_id" length="18" />
+            <generator class="assigned" />
+        </id>
+        <property name="ip" type="string">
+            <column name="ip" length="20">
+                <comment>&#214;&#213;&#182;&#203;&#215;&#238;&#208;&#194;ip</comment>
+            </column>
+        </property>
+        <property name="port" type="java.lang.Integer">
+            <column name="port">
+                <comment>&#214;&#213;&#182;&#203;&#215;&#238;&#208;&#194;&#182;&#203;&#191;&#218;</comment>
+            </column>
+        </property>
+        <property name="obdId" type="string">
+            <column name="obd_id" length="100">
+                <comment>
+                &#214;&#213;&#182;&#203;&#206;&#168;&#210;&#187;&#177;&#224;&#186;&#197;&#163;&#172;&#186;&#205;&#211;&#195;&#187;&#167;&#202;&#214;&#187;&#250;&#186;&#197;&#211;&#208;&#182;&#212;&#211;&#166;&#185;&#216;&#207;&#181;</comment>
+            </column>
+        </property>
+        <property name="createTime" type="timestamp">
+            <column name="create_time" length="19">
+                <comment>&#180;&#180;&#189;&#168;&#202;&#177;&#188;&#228;</comment>
+            </column>
+        </property>
+        <property name="state" type="java.lang.Character">
+            <column name="state" length="1">
+                <comment>
+                &#202;&#199;&#183;&#241;&#211;&#208;&#208;&#167;&#163;&#172;F&#163;&#186;&#206;&#222;&#208;&#167;&#163;&#187;T&#163;&#186;&#211;&#208;&#208;&#167;</comment>
+            </column>
+        </property>
+        <property name="remark" type="string">
+            <column name="remark">
+                <comment>&#177;&#184;&#215;&#162;</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

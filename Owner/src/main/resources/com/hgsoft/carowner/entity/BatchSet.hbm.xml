@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-9-7 16:22:15 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping  package="com.hgsoft.carowner.entity">
+    <class name="BatchSet" table="batchSet">
+        <id name="id" type="string">
+            <column name="id"/>
+            <generator class="assigned" />
+        </id>
+        <property name="type" type="string">
+            <column name="type" length="2"/>
+        </property>
+        <property name="msg" type="string">
+            <column name="msg"/>
+        </property>
+        <property name="bodyMsg" type="string">
+            <column name="bodyMsg"/>
+        </property>
+        <property name="version" type="string">
+            <column name="version"/>
+        </property>
+        <property name="auditOper" type="string">
+            <column name="auditOper"/>
+        </property>
+        <property name="auditTime" type="timestamp">
+            <column name="auditTime"></column>
+        </property>
+        <property name="auditState" type="java.lang.Integer">
+            <column name="auditState"/>
+        </property>
+        <property name="auditMsg" type="string">
+            <column name="auditMsg"/>
+        </property>
+        <property name="createTime" type="timestamp">
+            <column name="createTime"></column>
+        </property>
+        <property name="updateTime" type="timestamp">
+            <column name="updateTime"/>
+        </property>
+        <property name="valid" type="java.lang.Integer">
+            <column name="valid" length="1">
+                <comment>是否有效0无效1有效</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-8-14 11:55:48 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping package="com.hgsoft.carowner.entity">
+    <class name="SerMessageinfo" table="ser_messageinfo">
+        <id name="messageId" type="string">
+            <column name="messageId" length="18" />
+            <generator class="assigned" />
+        </id>
+        <property name="messageType" type="string">
+            <column name="messageType" length="2">
+                <comment>&#207;&#251;&#207;&#162;&#192;&#224;&#208;&#205; 01 &#205;&#198;&#203;&#205;&#207;&#251;&#207;&#162;</comment>
+            </column>
+        </property>
+        <property name="messageRec" type="string">
+            <column name="messageRec" length="20">
+                <comment>&#189;&#211;&#202;&#213;&#182;&#212;&#207;&#243; &#203;&#249;&#211;&#208;&#179;&#181;&#214;&#247;
+                &#178;&#191;&#183;&#214;&#179;&#181;&#214;&#247;</comment>
+            </column>
+        </property>
+        <property name="messageText" type="string">
+            <column name="messageText">
+                <comment>&#207;&#251;&#207;&#162;&#196;&#218;&#200;&#221;</comment>
+            </column>
+        </property>
+        <property name="messageTime" type="string">
+            <column name="messageTime" length="20">
+                <comment>&#183;&#162;&#203;&#205;&#202;&#177;&#188;&#228;</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

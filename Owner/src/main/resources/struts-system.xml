@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN"
+        "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+
+	<include file="struts-backstage.xml"></include>
+	
+    <package namespace="/admin" name="admin" extends="default">
+        <interceptors>
+			<interceptor name="permission" class="permissionInterceptor" />
+			<interceptor-stack name="permissionStack">
+				<interceptor-ref name="permission" />
+				<interceptor-ref name="defaultStack">
+					<param name="exception.logEnabled">true</param>
+					<param name="exception.logLevel">error</param>
+				</interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="permissionStack" />
+        
+        <action name="sys_*" method="{1}" class="systemAction">
+            <result name="index">/WEB-INF/jsp/index.jsp</result>
+            <result name="top">/WEB-INF/jsp/top.jsp</result>
+            <result name="left">/WEB-INF/jsp/left.jsp</result>
+            <result name="right">/WEB-INF/jsp/right.jsp</result>
+             <result name="leftJson" type="json">
+                <param name="root">list</param>
+                <param name="excludeProperties">
+                    \[\d+\](\.\w*)*\.display,
+                    \[\d+\](\.\w*)*\.functions,
+                    \[\d+\](\.\w*)*\.remark,
+                    \[\d+\](\.\w*)*\.subsystem,
+                    \[\d+\](\.\w*)*\.subsystems
+                </param>
+            </result>
+        </action>
+
+        <action name="admin_*" method="{1}" class="adminAction">
+            <result name="add">/WEB-INF/jsp/system/admin/add.jsp</result>
+            <result name="edit">/WEB-INF/jsp/system/admin/edit.jsp</result>
+            <result name="list">/WEB-INF/jsp/system/admin/list.jsp</result>
+            <result name="editmyself">/WEB-INF/jsp/system/admin/edit_myself.jsp</result>
+            <result name="updatemyself">/WEB-INF/jsp/system/admin/edit_myself.jsp</result>
+            <result name="datasource">/WEB-INF/jsp/system/admin/showDataSource.jsp</result>
+            <result name="info">/WEB-INF/jsp/system/admin/info.jsp</result>
+        </action>
+
+		<action name="module_*" method="{1}" class="moduleAction">
+            <result name="edit">/WEB-INF/jsp/system/module/edit.jsp</result>
+        </action>
+
+        <action name="role_*" method="{1}" class="roleAction">
+            <result name="add">/WEB-INF/jsp/system/role/add.jsp</result>
+            <result name="edit">/WEB-INF/jsp/system/role/edit.jsp</result>
+            <result name="list">/WEB-INF/jsp/system/role/list.jsp</result>
+        </action>
+        
+        <!-- 系统日志表 -->
+         <action name="systemLog_*" method="{1}" class="systemLogAction">
+            <result name="list">/WEB-INF/jsp/system/systemLog/list.jsp</result>
+			<result name="toDelSystemLog">/WEB-INF/jsp/system/systemLog/deleteSystemLog.jsp</result>
+			<result name="importSystemLog">/WEB-INF/jsp/system/systemLog/importSystemLogToExcel.jsp</result>
+        </action>
+
+        <!-- 其他参数信息 -->
+        <action name="sysparamconf_*" class="sysparamconfAction" method="{1}">
+            <result name="sysparamconf_list">/WEB-INF/jsp/system/sysparamconf/sysparamconf_list.jsp</result>
+            <result name="sysparamconf_add">/WEB-INF/jsp/system/sysparamconf/sysparamconf_add.jsp</result>
+            <result name="sysparamconf_edit">/WEB-INF/jsp/system/sysparamconf/sysparamconf_edit.jsp</result>
+        </action> 
+        
+        <!-- 车主管理 -->
+        <action name="carOwnerManager_*" method="{1}" class="carOwnerManagerAction">
+        	<result name="list">/WEB-INF/jsp/system/carOwnerManager/list.jsp</result>
+        	<result name="info">/WEB-INF/jsp/system/carOwnerManager/edit.jsp</result>
+        	<result name="carList">/WEB-INF/jsp/system/carOwnerManager/carList.jsp</result>
+        	<result name="busManagement">/WEB-INF/jsp/system/carOwnerManager/busManagementList.jsp</result>
+        	<result name="fuelManagement">/WEB-INF/jsp/system/carOwnerManager/fuelManagementList.jsp</result>
+        	<result name="fuelAdd">/WEB-INF/jsp/system/carOwnerManager/fuelAdd.jsp</result>
+        	<result name="busManagementAdd">/WEB-INF/jsp/system/carOwnerManager/busManagementAdd.jsp</result>
+        	<result name="acceptBusManagement">/WEB-INF/jsp/system/carOwnerManager/acceptBusManagement.jsp</result>      	
+        </action>
+        
+        <!-- 车主服务 -->
+        <action name="carOwnerService_*" method="{1}" class="carOwnerServiceAction">
+        	<result name="faultList">/WEB-INF/jsp/system/carOwnerService/faultList.jsp</result>
+        	<result name="maintainList">/WEB-INF/jsp/system/carOwnerService/maintainList.jsp</result>
+        	<result name="peccancyList">/WEB-INF/jsp/system/carOwnerService/peccancyList.jsp</result>
+        	<result name="carServiceList">/WEB-INF/jsp/system/carOwnerService/carServiceList.jsp</result>
+        	<result name="maintainAddJsp">/WEB-INF/jsp/system/carOwnerService/maintainAdd.jsp</result>
+        	<result name="peccancyAddJsp">/WEB-INF/jsp/system/carOwnerService/peccancyAdd.jsp</result>
+        	<result name="carServiceAddJsp">/WEB-INF/jsp/system/carOwnerService/carServiceAdd.jsp</result>
+        	<result name="faultAddJsp">/WEB-INF/jsp/system/carOwnerService/faultAdd.jsp</result>
+        	<result name="faultEditJsp">/WEB-INF/jsp/system/carOwnerService/faultEdit.jsp</result>
+        	<result name="maintainEditJsp">/WEB-INF/jsp/system/carOwnerService/maintainEdit.jsp</result>
+        	<result name="peccancyEditJsp">/WEB-INF/jsp/system/carOwnerService/peccancyEdit.jsp</result>
+        	<result name="carServiceEditJsp">/WEB-INF/jsp/system/carOwnerService/carServiceEdit.jsp</result>
+        </action>
+        
+        <!-- 营销管理 -->
+        <action name="carOwnerMarketing_*" method="{1}" class="carOwnerMarketingAction">
+       		<result name="newsList">/WEB-INF/jsp/system/carOwnerMarketing/newsList.jsp</result>
+       		<result name="newsAdd">/WEB-INF/jsp/system/carOwnerMarketing/newsAdd.jsp</result>
+       		<result name="newsEdit">/WEB-INF/jsp/system/carOwnerMarketing/newsEdit.jsp</result>
+       		<result name="businessList">/WEB-INF/jsp/system/carOwnerMarketing/businessList.jsp</result>
+       		<result name="drivingBehaviorList">/WEB-INF/jsp/system/carOwnerMarketing/drivingBehaviorList.jsp</result>
+        	<result name="oilConsumptionList">/WEB-INF/jsp/system/carOwnerMarketing/oilConsumptionList.jsp</result>
+        	<result name="travelTrackList">/WEB-INF/jsp/system/carOwnerMarketing/travelTrackList.jsp</result>
+        	<result name="excel">/WEB-INF/jsp/system/carOwnerMarketing/download.jsp</result>
+        	<result name="messagesList">/WEB-INF/jsp/system/carOwnerMarketing/messagesList.jsp</result>
+        	<result name="dataList">/WEB-INF/jsp/system/carOwnerMarketing/dataList.jsp</result> 
+        	<result name="track">/WEB-INF/jsp/system/carOwnerMarketing/track.jsp</result>     
+        </action>
+        <!-- 车辆监控 -->
+        
+        <!-- 库存管理 -->
+        <action name="carOwnerInventory_*" method="{1}" class="carOwnerInventoryAction">
+        	<result name="obdList">/WEB-INF/jsp/system/carOwnerInventory/obdList.jsp</result>
+        	<result name="simList">/WEB-INF/jsp/system/carOwnerInventory/simList.jsp</result>
+        	<result name="obdUnreg">/WEB-INF/jsp/system/carOwnerInventory/obdUnregist.jsp</result>
+        	<result name="addOBD">/WEB-INF/jsp/system/carOwnerInventory/addOBD.jsp</result>
+        	<result name="excel">/WEB-INF/jsp/system/carOwnerMarketing/download.jsp</result>
+        </action>
+        
+        <!-- 行程轨迹跟踪 -->
+        <action name="carLine_*" method="{1}" class="carLineAction">
+            <result name="his">/WEB-INF/jsp/system/carLine/carLine.jsp</result>
+            <result name="list">/WEB-INF/jsp/system/carLine/list.jsp</result>
+            <result name="edit">/WEB-INF/jsp/system/carLine/edit.jsp</result>
+            <result name="carTravelArea">/WEB-INF/jsp/system/carLine/carTravelArea.jsp</result>
+        </action>
+        
+        <!-- 行程轨迹跟踪 -->
+        <action name="carPosition_*" method="{1}" class="dictionaryAction">
+            <result name="add">/WEB-INF/jsp/system/admin/add.jsp</result>
+            <result name="edit">/WEB-INF/jsp/system/admin/edit.jsp</result>
+            <result name="list">/WEB-INF/jsp/system/carMonitor/carPosition.jsp</result>
+            <result name="editmyself">/WEB-INF/jsp/system/admin/edit_myself.jsp</result>
+            <result name="updatemyself">/WEB-INF/jsp/system/admin/edit_myself.jsp</result>
+            <result name="datasource">/WEB-INF/jsp/system/admin/showDataSource.jsp</result>
+            <result name="info">/WEB-INF/jsp/system/admin/info.jsp</result>
+            <result name="carInfoList">/WEB-INF/jsp/system/carMonitor/list.jsp</result>
+            <result name="carInfo">/WEB-INF/jsp/system/carMonitor/carInfo.jsp</result>
+            <result name="obdList">/WEB-INF/jsp/system/carMonitor/obd_list.jsp</result>
+        </action>
+        
+        <!-- 字典表 -->
+        <action name="dictionary_*" class="paramAction" method="{1}">
+            <result name="list">/WEB-INF/jsp/system/dictionary/dictionary_list.jsp</result>
+            <result name="add">/WEB-INF/jsp/system/dictionary/dictionary_add.jsp</result>
+            <result name="edit">/WEB-INF/jsp/system/dictionary/dictionary_edit.jsp</result>
+        </action>
+        
+        <!-- 读故障码 -->
+        <action name="faultCodeRead_*" method="{1}" class="faultCodeReadAction">
+            <result name="list">/WEB-INF/jsp/system/faultCodeRead/faultCodeRead.jsp</result>
+            <result name="list2">/WEB-INF/jsp/system/faultCodeRead/faultCodeRead2.jsp</result>
+        </action>
+        
+        <!-- 读故障码 -->
+        <action name="newFaultCodeRead_*" method="{1}" class="newFaultCodeReadAction">
+            <result name="list">/WEB-INF/jsp/system/faultCodeRead/faultCodeRead.jsp</result>
+            <result name="list2">/WEB-INF/jsp/system/faultCodeRead/faultCodeRead2.jsp</result>
+        </action>
+        
+        <!-- 强制远程升级 -->
+        <action name="upgrade_*" method="{1}" class="upgradeAction">
+            <result name="list">/WEB-INF/jsp/system/faultCodeRead/faultCodeRead.jsp</result>
+        </action>
+        
+        <!-- obd设备升级 -->
+        <action name="odbUpgrade_*" method="{1}" class="obdUpgradeAction">
+            <result name="listUpgrade">/WEB-INF/jsp/system/obdUpgrade/listUpgrade.jsp</result>
+            <result name="addUpgrade">/WEB-INF/jsp/system/obdUpgrade/editUpgrade.jsp</result>
+            <result name="updateUpgrade">/WEB-INF/jsp/system/obdUpgrade/editUpgrade.jsp</result>
+            <result name="listPushObd">/WEB-INF/jsp/system/obdUpgrade/listObd.jsp</result>
+            <result name="excelUpgrade">/WEB-INF/jsp/system/obdUpgrade/excelUpgrade.jsp</result>
+            <result name="toCheck">/WEB-INF/jsp/system/obdUpgrade/upgradeCheck.jsp</result>
+        </action>
+        
+        <!-- obd设备升级详情 -->
+        <action name="obdUpgradeMsg_*" method="{1}" class="obdUpgradeMsgAction">
+            <result name="list">/WEB-INF/jsp/system/obdUpgrade/obdVersion_list.jsp</result>
+            <result name="upgradeSetList">/WEB-INF/jsp/system/obdUpgrade/upgradeSet_list.jsp</result>
+            <result name="excel">/WEB-INF/jsp/system/carOwnerMarketing/download.jsp</result>
+        </action>
+        
+        <!-- obd报文 -->
+        <action name="obdMsg_*" class="obdMsgAction" method="{1}">
+            <result name="list">/WEB-INF/jsp/system/obdMsg/obdMsg_list.jsp</result>
+            <result name="msgShow">/WEB-INF/jsp/system/obdMsg/obdMsgShow.jsp</result>
+        </action>
+        
+        <!-- obd模拟下发设置测试页面 -->
+        <action name="obdTest_*" class="obdTestAction" method="{1}">
+            <result name="test">/WEB-INF/jsp/system/test/test.jsp</result>
+            <result name="test1">/WEB-INF/jsp/system/test/test1.jsp</result>
+            <result name="testQuery">/WEB-INF/jsp/system/test/testQuery.jsp</result>
+        </action>
+        
+         <!-- obd分组-->
+        <action name="obdGroup_*" class="obdGroupAction" method="{1}">
+            <result name="list">/WEB-INF/jsp/system/obdGroup/obdGroup_list.jsp</result>
+            <result name="add">/WEB-INF/jsp/system/obdGroup/obdGroup_add.jsp</result>
+            <result name="edit">/WEB-INF/jsp/system/obdGroup/obdGroup_edit.jsp</result>
+            <result name="obdUnRegExcel">/WEB-INF/jsp/system/obdGroupSet/obdUnRegExcel.jsp</result>
+        </action>
+        
+        <!-- obd分组设置-->
+        <action name="obdGroupSet_*" class="obdGroupSetAction" method="{1}">
+            <result name="list">/WEB-INF/jsp/system/obdGroupSet/obdGroupSet_list.jsp</result>
+            <result name="add">/WEB-INF/jsp/system/obdGroupSet/obdGroupSet_add.jsp</result>
+            <result name="edit">/WEB-INF/jsp/system/obdGroupSet/obdGroupSet_edit.jsp</result>
+             <result name="listObdGroup">/WEB-INF/jsp/system/obdGroupSet/listObdGroup.jsp</result>
+        </action>
+        
+        <!-- obdApi接口测试页面 -->
+        <action name="obdApiTest_*" class="obdApiTestAction" method="{1}">
+            <result name="obdApiTest">/WEB-INF/jsp/system/test/obdApiTest.jsp</result>
+        </action>
+        
+        <!-- 位置查询 -->
+        <action name="obdPositionSearch_*" class="positionSearchAction" method="{1}">
+            <result name="positionSearch">/WEB-INF/jsp/system/obdPositionSearch/obdPosition_search.jsp</result> 
+            <result name="excel">/WEB-INF/jsp/system/carOwnerMarketing/download.jsp</result>
+        </action>
+        
+        <!-- 行程查询 -->
+        <action name="obdTravelTrackSearch_*" class="travelTrackAction" method="{1}">
+            <result name="travelTrackSearch">/WEB-INF/jsp/system/obdPositionSearch/travelTrack_search.jsp</result>
+            <result name="excel">/WEB-INF/jsp/system/carOwnerMarketing/download.jsp</result>
+        </action>
+        
+        <!-- warning_message -->
+        <action name="warningMsg_*" class="warningMsgAction" method="{1}">
+            <result name="list">/WEB-INF/jsp/system/test/warningMsg_list.jsp</result>
+        </action>
+        
+        <!-- obd_state -->
+        <action name="obdState_*" class="obdStateAction" method="{1}">
+            <result name="list">/WEB-INF/jsp/system/test/obdState_list.jsp</result>
+        </action>
+        
+        <!-- obd_setting -->
+        <action name="obdSetting_*" class="obdSettingAction" method="{1}">
+            <result name="list">/WEB-INF/jsp/system/test/obdSetting_list.jsp</result>
+        </action>
+        
+        <!-- obd_handshake -->
+        <action name="obdHandshake_*" class="obdHandshakeAction" method="{1}">
+            <result name="list">/WEB-INF/jsp/system/test/obdHandshake_list.jsp</result>
+            <result name="excel">/WEB-INF/jsp/system/carOwnerMarketing/download.jsp</result>
+        </action>
+        
+        <!-- efence -->
+        <action name="efence_*" class="efenceAction" method="{1}">
+            <result name="list">/WEB-INF/jsp/system/test/efence_list.jsp</result>
+        </action>
+        
+        <!-- fence -->
+        <action name="fence_*" class="fenceAction" method="{1}">
+            <result name="list">/WEB-INF/jsp/system/test/fence_list.jsp</result>
+            <result name="fenceMap">/WEB-INF/jsp/system/test/fenceMap.jsp</result>
+        </action>
+        
+        <!-- wifiSet -->
+        <action name="wifiSet_*" class="wifiSetAction" method="{1}">
+            <result name="list">/WEB-INF/jsp/system/test/wifiSet_list.jsp</result>
+        </action>
+        
+        <!-- gpsSet -->
+        <action name="gpsSet_*" class="gpsSetAction" method="{1}">
+            <result name="list">/WEB-INF/jsp/system/test/gpsSet_list.jsp</result>
+        </action>
+        
+        <!-- portal -->
+        <action name="portal_*" class="portalAction" method="{1}">
+            <result name="list">/WEB-INF/jsp/system/test/portal_list.jsp</result>
+        </action>
+        
+        <!-- OBDServerParams -->
+        <action name="obdServerParams_*" class="obdServerParamsAction" method="{1}">
+            <result name="list">/WEB-INF/jsp/system/test/obdServerParams_list.jsp</result>
+        </action>
+        
+        <!-- OBD设备版本表 OBD_Device_Version -->
+        <action name="obdDeviceVersion_*" class="obdDeviceVersionAction" method="{1}">
+            <result name="list">/WEB-INF/jsp/system/test/obdDeviceVersion_list.jsp</result>
+        </action>
+        
+        <!-- OBD设备时间参数表 OBD_Time_Params -->
+        <action name="obdTimeParams_*" class="obdTimeParamsAction" method="{1}">
+            <result name="list">/WEB-INF/jsp/system/test/obdTimeParams_list.jsp</result>
+        </action>
+        
+        <!-- OBD行程参数表 OBD_Travel_Params -->
+        <action name="obdTravelParams_*" class="obdTravelParamsAction" method="{1}">
+            <result name="list">/WEB-INF/jsp/system/test/obdTravelParams_list.jsp</result>
+        </action>
+        
+        <!-- domainState -->
+        <action name="domainState_*" class="domainStateAction" method="{1}">
+            <result name="list">/WEB-INF/jsp/system/test/domainState_list.jsp</result>
+        </action>
+        
+        <!-- domainState -->
+        <action name="fota_*" class="fotaAction" method="{1}">
+            <result name="list">/WEB-INF/jsp/system/test/fota_list.jsp</result>
+        </action>
+        
+         <!-- fotaset-->
+        <action name="fotaSet_*" class="fotaSetAction" method="{1}">
+            <result name="list">/WEB-INF/jsp/system/fota/fotaExcel.jsp</result>
+            <result name="fsList">/WEB-INF/jsp/system/fota/fotaSet_list.jsp</result>
+            <result name="excel">/WEB-INF/jsp/system/carOwnerMarketing/download.jsp</result>
+        </action>
+        
+        <!-- OBD测试报文下发表-->
+        <action name="obdTestSendPacket_*" class="obdTestSendPacketAction" method="{1}">
+            <result name="list">/WEB-INF/jsp/system/test/obdTestSendPacket_list.jsp</result>
+        </action>
+        
+        <!-- 私有协议下发测试页面 -->
+        <action name="privateProtocol_*" class="privateProtocolAction" method="{1}">
+            <result name="test">/WEB-INF/jsp/system/test/privateProtocol.jsp</result>
+        </action>
+        
+         <!-- sim卡 -->
+        <action name="obdSimCard_*" class="obdSimCardAction" method="{1}">
+            <result name="list">/WEB-INF/jsp/system/test/obdSimCard_list.jsp</result>
+        </action>
+        <!-- gpsSet -->
+        <action name="reports_*" class="reportsAction" method="{1}">
+            <result name="obdOnline">/WEB-INF/jsp/system/reports/obdOnline.jsp</result>
+            <result name="obdActive">/WEB-INF/jsp/system/reports/obdActive.jsp</result>
+        </action>
+        
+        <!-- meb_user -->
+        <action name="mebUser_*" class="mebUserAction" method="{1}">
+            <result name="list">/WEB-INF/jsp/system/carOwnerInventory/mebUser_list.jsp</result>
+        </action>
+        
+        <!-- obdcar -->
+        <action name="obdCar_*" class="obdCarAction" method="{1}">
+            <result name="list">/WEB-INF/jsp/system/test/obdCar_list.jsp</result>
+        </action>
+        
+        <!-- obdcarhis -->
+        <action name="obdCarHis_*" class="obdCarHisAction" method="{1}">
+            <result name="list">/WEB-INF/jsp/system/test/obdCarHis_list.jsp</result>
+        </action>
+        
+        <!-- obdMiles -->
+        <action name="obdMiles_*" class="obdMilesAction" method="{1}">
+            <result name="list">/WEB-INF/jsp/system/test/obdMiles_list.jsp</result>
+        </action>
+        
+        <!-- obdMiles -->
+        <action name="obdApiRecord_*" class="obdApiRecordAction" method="{1}">
+            <result name="list">/WEB-INF/jsp/system/test/obdApiRecord_list.jsp</result>
+        </action>
+        
+        <!-- obdMiles -->
+        <action name="agnss_*" class="agnssAction" method="{1}">
+            <result name="list">/WEB-INF/jsp/system/test/agnss_list.jsp</result>
+        </action>
+        
+         <!-- obdMiles -->
+        <action name="agnssHis_*" class="agnssHisAction" method="{1}">
+            <result name="list">/WEB-INF/jsp/system/test/agnssHis_list.jsp</result>
+        </action>
+       
+        
+        <!-- fenceHis -->
+        <action name="fenceHis_*" class="fenceHisAction" method="{1}">
+            <result name="list">/WEB-INF/jsp/system/test/fenceHis_list.jsp</result>
+        </action>
+        
+        <!-- obdcar -->
+        <action name="carOilInfo_*" class="carOilInfoAction" method="{1}">
+            <result name="list">/WEB-INF/jsp/system/test/carOilInfo_list.jsp</result>
+        </action>
+        
+         <!-- obdcar -->
+        <action name="carDriveInfo_*" class="carDriveInfoAction" method="{1}">
+            <result name="list">/WEB-INF/jsp/system/test/carDriveInfo_list.jsp</result>
+        </action>
+ 
+        <action name="obdButtonAlarm_*" class="obdButtonAlarmAction" method="{1}">
+            <result name="list">/WEB-INF/jsp/system/test/obdButtonAlarm_list.jsp</result>
+            <result name="position">/WEB-INF/jsp/system/test/obdButtonAlarm_position.jsp</result>
+        </action>
+      
+      	<action name="*ControlAction" method="{1}" class="testControlAction">
+			<result name="list">/WEB-INF/jsp/system/test/list.jsp</result>
+			<result name="connected">/WEB-INF/jsp/system/test/connected.jsp</result>
+			<result name="sendStats">/WEB-INF/jsp/system/test/sendStats.jsp</result>
+			<result name="redis">/WEB-INF/jsp/system/test/operRedisData.jsp</result>
+			<result name="netty">/WEB-INF/jsp/system/test/operNettyData.jsp</result>
+		</action>
+		
+		<!-- obdcar -->
+        <action name="agpsGroup_*" class="obdGroupAgpsAction" method="{1}">
+            <result name="list">/WEB-INF/jsp/system/test/agpsGroup_list.jsp</result>
+        </action>
+        
+         <!-- batchSet -->
+        <action name="batchSet_*" class="batchSetAction" method="{1}">
+            <result name="list">/WEB-INF/jsp/system/test/batchSet_list.jsp</result>
+            <result name="add">/WEB-INF/jsp/system/test/addAddress.jsp</result>
+            <result name="toCheck">/WEB-INF/jsp/system/test/batchSetCheck.jsp</result>
+            <result name="toObdExcel">/WEB-INF/jsp/system/test/batchObdExcel.jsp</result>
+        </action>
+        
+        <!-- obdBatchSet-->
+        <action name="obdBatchSet_*" method="{1}" class="obdBatchSetAction">
+            <result name="list">/WEB-INF/jsp/system/test/obdBatchSet_list.jsp</result>
+            <result name="excel">/WEB-INF/jsp/system/carOwnerMarketing/download.jsp</result>
+        </action>
+    </package>
+</struts>

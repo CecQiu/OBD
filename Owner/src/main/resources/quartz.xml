@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jee="http://www.springframework.org/schema/jee" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="  
+            http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd  
+            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- 上线统计任务 -->
+	<!-- 启动触发器的配置开始 -->
+	<bean name="startQuertz" lazy-init="false" autowire="no"	class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="triggers">
+			<list>
+				<ref bean="onlineTrigger" />
+				<ref bean="activeTrigger" />
+			</list>
+		</property>
+	</bean>
+	<!-- 启动触发器的配置结束 -->
+	
+	<!-- 调度的配置开始 -->
+	<!-- quartz-2.x的配置 -->
+	<bean id="onlineTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail">
+			<ref bean="onlineDetail" />
+		</property>
+		<property name="cronExpression">
+			<value>0 30 * * * ?</value>
+			<!-- <value>0 0 1 * * ?</value>每天凌晨1点执行一次 -->
+		</property>
+	</bean>
+	<!-- 调度的配置结束 -->
+	
+	<!-- job的配置开始 -->
+	<bean id="onlineDetail"	class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject">
+			<!-- <ref bean="myJob" /> -->
+			<ref bean="obdOnLineJob" />
+		</property>
+		<property name="targetMethod">
+			<!-- <value>work</value> -->
+			<value>run</value>
+		</property>
+	</bean>
+	<!-- job的配置结束 -->
+
+	<!-- 激活统计任务 -->
+	<!-- 调度的配置开始 -->
+	<!-- quartz-2.x的配置 -->
+	<bean id="activeTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail">
+			<ref bean="activeDetail" />
+		</property>
+		<property name="cronExpression">
+			<value>0 30 * * * ?</value>
+			<!-- <value>0 0 1 * * ?</value>每天凌晨1点执行一次 -->
+		</property>
+	</bean>
+	<!-- 调度的配置结束 -->
+	
+	<!-- job的配置开始 -->
+	<bean id="activeDetail"	class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject">
+			<!-- <ref bean="myJob" /> -->
+			<ref bean="obdActiveJob" />
+		</property>
+		<property name="targetMethod">
+			<value>run</value>
+		</property>
+	</bean>
+	<!-- job的配置结束 -->
+	
+	<!-- 任务的bean -->
+	<!-- <bean id="myJob" class="com.hgsoft.obd.quartz.MyJob" /> -->
+	<bean id="obdOnLineJob" class="com.hgsoft.obd.quartz.ObdOnLineJob" />
+	<bean id="obdActiveJob" class="com.hgsoft.obd.quartz.ObdActiveJob" />
+	
+</beans>

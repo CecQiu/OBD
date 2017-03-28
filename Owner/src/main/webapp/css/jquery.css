@@ -1,0 +1,30 @@
+/* GENERAL ELEMENTS */
+
+#myForm .status {
+	padding-top: 2px;
+	padding-left: 8px;
+	vertical-align: top;
+	width: 246px;
+	white-space: nowrap;
+}
+
+#myForm label.error {
+	background:url("../images/unchecked.gif") no-repeat 20px 0px;
+	padding-left: 36px;
+	padding-bottom: 2px;
+	font-weight: bold;
+	color: #EA5200;
+}
+
+#myForm label.checked {
+	background:url("");
+	padding-left: 0px;
+	padding-bottom: 0px;
+	font-size: 0px;
+}
+
+#myForm .success_msg {
+	font-weight: bold;
+	color: #0060BF;
+	margin-left: 19px;
+}

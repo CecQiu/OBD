@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-7-29 9:28:18 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping package="com.hgsoft.carowner.entity">
+    <class name="FaultCode" table="fault_code" optimistic-lock="version">
+        <id name="faultId" type="string">
+            <column name="fault_id" length="18" />
+            <generator class="assigned" />
+        </id>
+        <property name="code" type="string">
+            <column name="code" length="10">
+                <comment>&#185;&#202;&#213;&#207;&#177;&#224;&#194;&#235;</comment>
+            </column>
+        </property>
+        <property name="cname" type="string">
+            <column name="cname" length="100">
+                <comment>&#214;&#208;&#206;&#196;&#195;&#251;</comment>
+            </column>
+        </property>
+        <property name="createTime" type="timestamp">
+            <column name="create_time" length="19">
+                <comment>&#180;&#180;&#189;&#168;&#202;&#177;&#188;&#228;</comment>
+            </column>
+        </property>
+        <property name="state" type="java.lang.Character">
+            <column name="state" length="1">
+                <comment>
+                &#202;&#199;&#183;&#241;&#211;&#208;&#208;&#167;&#163;&#172;F&#163;&#186;&#206;&#222;&#208;&#167;&#163;&#187;T&#163;&#186;&#211;&#208;&#208;&#167;</comment>
+            </column>
+        </property>
+        <property name="remark" type="string">
+            <column name="remark">
+                <comment>&#177;&#184;&#215;&#162;</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,86 @@
+select, textarea, input[type="text"], input[type="password"]{ border-radius:0px;}
+.btn, textarea, input[type="text"], input[type="password"]{ box-shadow:none;}
+/*Metro Background color class*/
+.bg_lb{ 
+	background: linear-gradient(to bottom, #368cb8 0%, #60add7 100%) repeat scroll 0% 0% transparent;
+	background: linear-gradient(to bottom, #368cb8 0%, #60add7 100%) repeat scroll 0% 0% transparent;
+	background: -moz-linear-gradient(bottom, #368cb8 0%, #60add7 100%);
+    background: -webkit-linear-gradient(bottom, #368cb8 0%, #60add7 100%);
+    background: -o-linear-gradient(bottom, #368cb8 0%, #60add7 100%);
+    background: linear-gradient(bottom, #368cb8 0%, #60add7 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType = 0, startColorstr = #368cb8, endColorstr = #60add7);
+}
+.bg_db{ background:#2295c9;}
+.bg_lg{ 
+	background: linear-gradient(to bottom, #A3CD54 0%, #7DA138 100%) repeat scroll 0% 0% transparent;
+	background: -moz-linear-gradient(bottom, #A3CD54 0%, #7DA138 100%);
+    background: -webkit-linear-gradient(bottom, #A3CD54 0%, #7DA138 100%);
+    background: -o-linear-gradient(bottom, #A3CD54 0%, #7DA138 100%);
+    background: linear-gradient(bottom, #A3CD54 0%, #7DA138 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType = 0, startColorstr = #A3CD54, endColorstr = #7DA138);
+}
+.bg_dg{ background:#28b779;}
+.bg_ly{ background:#ffb848;}
+.bg_dy{ background:#da9628;}
+.bg_ls{ background:#2255a4;}
+.bg_lo{ background:#da542e;}
+.bg_lr{ background: linear-gradient(to bottom, #C57979 0%, #A34C4C 100%) repeat scroll 0% 0% transparent;
+	background: linear-gradient(to bottom, #C57979 0%, #A34C4C 100%) repeat scroll 0% 0% transparent;
+	background: -moz-linear-gradient(bottom, #C57979 0%, #A34C4C 100%);
+    background: -webkit-linear-gradient(bottom, #C57979 0%, #A34C4C 100%);
+    background: -o-linear-gradient(bottom, #C57979 0%, #A34C4C 100%);
+    background: linear-gradient(bottom, #C57979 0%, #A34C4C 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType = 0, startColorstr = #C57979, endColorstr = #A34C4C);
+}
+.bg_lv{ background:#603bbc;}
+.bg_lh{ background:#b6b3b3;}
+
+body { padding: 0; padding-top:12%;}
+.logo, .loginbox { width: 39%; min-width:390px; margin-left: auto; margin-right: auto; position: relative;}
+.logo img {  margin: 0 auto;    display: block;}
+.loginbox { 
+	overflow: hidden !important;
+	text-align: left;
+	
+}
+.loginbox form{ width:100%; position:relative; top:0; left:0; }
+.info-box{
+	min-width:390px;
+	margin:20px auto 0;
+	line-height:20px;
+}
+.warm-info { margin:0 auto; font-size:14px; padding-left:40px;}
+.loginbox form.form-vertical { z-index: 200; display:block;}
+.loginbox .main_input_box { margin:0 auto; text-align:center; height:34px; padding-left:20px;}
+.loginbox .main_input_box .add-on{ 
+	box-shadow: 0px 1px 1px #f9f9f9 inset;
+	border-right-width:0px;  
+	padding:9px;  
+	color:#fff;  
+	width:36px;  
+	display:inline-block; 
+	float:left; 
+	font-size:15px;
+	height:34px; 
+}
+.loginbox .main_input_box input{ 
+	box-shadow: 0px 1px 1px #f9f9f9 inset;
+	padding: 8px 10px;
+	font-size: 12px; 
+	border-left-width:0px; 
+	display:inline-block; 
+	width:80%;   
+	margin-bottom:2px; 
+	float:left;
+	color:#5f5f5f;
+}
+.loginbox .form-actions,.loginbox .form-bottom{ margin-top:7px; }
+.loginbox .form-bottom .btn{ width:100%; height:60px; line-height:58px; border-radius:0 0 5px 5px; margin:0; padding:0; font-size:20px; 
+text-shadow: 0px 1px 1px #202020;
+}
+.loginbox .form-vertical{ border-radius:3px;}
+.loginbox .controls{ padding:0 20px;}
+.loginbox .control-group{ padding:5px 0 26px; margin-bottom:0px;}
+.formtitle{ padding:12px 25px;}
+.formtitle img{ width:100%;}
+.system-info{ text-align:center; margin:0 auto; font-size:12px;}

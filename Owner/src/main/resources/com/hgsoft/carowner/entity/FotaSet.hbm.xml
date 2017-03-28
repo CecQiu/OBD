@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-9-7 16:22:15 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping  package="com.hgsoft.carowner.entity">
+    <class name="FotaSet" table="fota_set">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="obdSn" type="string">
+            <column name="obdSn" length="50"></column>
+        </property>
+        <property name="version" type="string">
+            <column name="version" length="50"></column>
+        </property>
+        <property name="batchVersion" type="string">
+            <column name="batchVersion" length="10"></column>
+        </property>
+        
+        
+        <property name="fileName" type="string">
+            <column name="fileName" length="100"></column>
+        </property>
+        <property name="ftpIP" type="string">
+            <column name="ftpIP" length="20"></column>
+        </property>
+        <property name="ftpPort" type="java.lang.Integer">
+            <column name="ftpPort"></column>
+        </property>
+        
+        <property name="ftpUsername" type="string">
+            <column name="ftpUsername" length="20"></column>
+        </property>
+        <property name="ftpPwd" type="string">
+            <column name="ftpPwd" length="20"></column>
+        </property>
+        
+        <property name="createTime" type="timestamp">
+            <column name="createTime"></column>
+        </property>
+        <property name="valid" type="string">
+            <column name="valid" length="2">
+                <comment>是否有效0无效1有效</comment>
+            </column>
+        </property>
+        
+        <property name="uploadOper" type="string">
+            <column name="upload_oper" length="20"></column>
+        </property>
+        <property name="auditOper" type="string">
+            <column name="audit_oper" length="20"></column>
+        </property>
+        
+         <property name="auditResult" type="string">
+            <column name="audit_result" length="1"></column>
+        </property>
+        
+        <property name="auditTime" type="timestamp">
+            <column name="auditTime"></column>
+        </property>
+        
+        <property name="sendTime" type="timestamp">
+            <column name="sendTime"></column>
+        </property>
+        
+        <property name="mifiFlag" type="string">
+            <column name="mifiFlag" length="1"></column>
+        </property>
+        <property name="useFlag" type="string">
+            <column name="useFlag" length="1"></column>
+        </property>
+        
+        <property name="mifiTime" type="timestamp">
+            <column name="mifiTime"></column>
+        </property>
+    </class>
+</hibernate-mapping>

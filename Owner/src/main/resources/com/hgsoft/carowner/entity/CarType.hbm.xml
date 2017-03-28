@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-7-29 17:16:29 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping package="com.hgsoft.carowner.entity">
+    <class name="CarType" table="car_type">
+        <id name="cartypeId" type="string">
+            <column name="cartype_id" length="10" />
+            <generator class="assigned" />
+        </id>
+        <property name="firstLetter" type="string">
+            <column name="first_letter" length="9" not-null="true">
+                <comment>&#198;&#183;&#197;&#198;-&#202;&#215;&#215;&#214;&#196;&#184;</comment>
+            </column>
+        </property>
+        <property name="makeName" type="string">
+            <column name="make_name" length="9" not-null="true">
+                <comment>&#198;&#183;&#197;&#198;-&#195;&#251;&#179;&#198;</comment>
+            </column>
+        </property>
+        <property name="modelSeries" type="string">
+            <column name="model_series" length="9" not-null="true">
+                <comment>&#179;&#181;&#207;&#181;-&#179;&#167;&#201;&#204;</comment>
+            </column>
+        </property>
+        <property name="modelName" type="string">
+            <column name="model_name" length="9" not-null="true">
+                <comment>&#179;&#181;&#207;&#181;-&#195;&#251;&#179;&#198;</comment>
+            </column>
+        </property>
+        <property name="typeSeries" type="string">
+            <column name="type_series" length="10">
+                <comment>&#179;&#181;&#208;&#205;-&#196;&#234;&#191;&#238;</comment>
+            </column>
+        </property>
+        <property name="typeName" type="string">
+            <column name="type_name" length="10" not-null="true">
+                <comment>&#179;&#181;&#208;&#205;-&#195;&#251;&#179;&#198;</comment>
+            </column>
+        </property>
+        <property name="country" type="string">
+            <column name="country" length="10">
+                <comment>&#198;&#183;&#197;&#198;-&#185;&#250;&#188;&#210;</comment>
+            </column>
+        </property>
+        <property name="technology" type="string">
+            <column name="technology" length="10">
+                <comment>&#179;&#181;&#207;&#181;-&#198;&#183;&#197;&#198;&#188;&#188;&#202;&#245;</comment>
+            </column>
+        </property>
+        <property name="vehicleClass" type="string">
+            <column name="vehicle_class" length="10">
+                <comment>&#179;&#181;&#207;&#181;-&#188;&#182;&#177;&#240;</comment>
+            </column>
+        </property>
+        <property name="engineCapacity" type="string">
+            <column name="engine_capacity" length="10">
+                <comment>&#179;&#181;&#208;&#205;-&#197;&#197;&#198;&#248;&#193;&#191;</comment>
+            </column>
+        </property>
+        <property name="transmission" type="string">
+            <column name="transmission" length="10">
+                <comment>&#179;&#181;&#208;&#205;-&#177;&#228;&#203;&#217;&#207;&#228;</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

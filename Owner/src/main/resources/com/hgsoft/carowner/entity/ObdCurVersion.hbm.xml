@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-9-7 16:22:15 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping  package="com.hgsoft.carowner.entity">
+    <class name="ObdCurVersion" table="obd_curversion">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="obdSn" type="string">
+            <column name="obdSn" length="50">
+                <comment>&#179;&#181;&#193;&#190;id</comment>
+            </column>
+        </property>
+        <property name="hardware" type="string">
+            <column name="hardware" length="50">
+                <comment>obd硬件版本号</comment>
+            </column>
+        </property>
+        <property name="iap" type="string">
+            <column name="iap" length="50">
+                <comment>iap版本号</comment>
+            </column>
+        </property>
+        <property name="osoftware" type="string">
+            <column name="osoftware" length="50">
+                <comment>应用软件版本</comment>
+            </column>
+        </property>
+        <property name="software" type="string">
+            <column name="software" length="50">
+                <comment>obd升级软件版本</comment>
+            </column>
+        </property>
+        <property name="createTime" type="timestamp">
+            <column name="create_time" length="19">
+                <comment>创建时间</comment>
+            </column>
+        </property>
+        <property name="updateTime" type="timestamp">
+            <column name="update_time" length="19">
+                <comment>更新时间</comment>
+            </column>
+        </property>
+        <property name="remark" type="string">
+            <column name="remark" length="200">
+                <comment>备注</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

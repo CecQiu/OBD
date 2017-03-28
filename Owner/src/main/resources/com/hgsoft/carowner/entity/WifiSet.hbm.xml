@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-9-7 16:22:15 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping  package="com.hgsoft.carowner.entity">
+    <class name="WifiSet" table="wifi_set">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="obdSn" type="string">
+            <column name="obdSn" length="20">
+                <comment>obd设备号</comment>
+            </column>
+        </property>
+        <property name="type" type="string">
+            <column name="type" length="2">
+                <comment>wifi操作类别;</comment>
+            </column>
+        </property>
+        <property name="ssid" type="string">
+            <column name="ssid" length="2">
+                <comment>车辆ssid号;</comment>
+            </column>
+        </property>
+        <property name="autu" type="string">
+            <column name="autu" length="2">
+                <comment>WIFI共享方式;</comment>
+            </column>
+        </property>
+        <property name="encrypt" type="string">
+            <column name="encrypt" length="2">
+                <comment>Wifi密码加密方式;</comment>
+            </column>
+        </property>
+        <property name="wifiPwd" type="string">
+            <column name="wifi_pwd" length="2">
+                <comment>wifi密码;</comment>
+            </column>
+        </property>
+        <property name="wifiState" type="string">
+            <column name="wifi_state" length="2">
+                <comment>wifi开关设置 4打开,5关闭</comment>
+            </column>
+        </property>
+        <property name="useTime" type="java.lang.Integer">
+            <column name="useTime" length="2">
+                <comment>wifi使用时间</comment>
+            </column>
+        </property>
+        <property name="createTime" type="timestamp">
+            <column name="create_time" length="19">
+                <comment>&#180;&#180;&#189;&#168;&#202;&#177;&#188;&#228;</comment>
+            </column>
+        </property>
+        <property name="updateTime" type="timestamp">
+            <column name="update_time" length="19">
+                <comment>&#180;&#180;&#189;&#168;&#202;&#177;&#188;&#228;</comment>
+            </column>
+        </property>
+        <property name="valid" type="string">
+            <column name="valid" length="2">
+                <comment>是否有效0无效1有效</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

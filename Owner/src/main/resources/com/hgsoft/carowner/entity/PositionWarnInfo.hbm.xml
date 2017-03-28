@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.hgsoft.carowner.entity.PositionWarnInfo" table="position_warn_info">
+        <id name="id" type="java.lang.String">
+            <column name="id" not-null="true"/>
+            <generator class="assigned" />
+        </id>
+        <property name="positionInfoId" type="java.lang.String">
+            <column name="positionInfoId" not-null="true"/>
+        </property>
+         <property name="illegalStartUp" type="java.lang.Integer">
+            <column name="illegalStartUp"/>
+        </property>
+        <property name="illegalShake" type="java.lang.Integer">
+            <column name="illegalShake"/>
+        </property>
+        <property name="batteryLow" type="java.lang.Integer">
+            <column name="batteryLow"/>
+        </property>
+        <property name="batteryUp" type="java.lang.Integer">
+            <column name="batteryUp"/>
+        </property>
+        <property name="engineTemperature" type="java.lang.Integer">
+            <column name="engineTemperature"/>
+        </property>
+        <property name="vehicleFailure" type="java.lang.Integer">
+            <column name="vehicleFailure"/>
+        </property>
+        <property name="overSpeed" type="java.lang.Integer">
+            <column name="overSpeed"/>
+        </property>
+        <property name="elecFenceOut" type="java.lang.Integer">
+            <column name="elecFenceOut"/>
+        </property>
+        <property name="elecFenceIn" type="java.lang.Integer">
+            <column name="elecFenceIn"/>
+        </property>
+        <property name="vehicleSideDown" type="java.lang.Integer">
+            <column name="vehicleSideDown"/>
+        </property>
+        <property name="vehicleCrash" type="java.lang.Integer">
+            <column name="vehicleCrash"/>
+        </property>
+        <property name="ecu" type="java.lang.Integer">
+            <column name="ecu"/>
+        </property>
+        <property name="gps" type="java.lang.Integer">
+            <column name="gps"/>
+        </property>
+        <property name="eeprom" type="java.lang.Integer">
+            <column name="eeprom"/>
+        </property>
+        <property name="accelerateSensor" type="java.lang.Integer">
+            <column name="accelerateSensor"/>
+        </property>
+        <property name="offData" type="java.lang.Integer">
+            <column name="offData"/>
+        </property>
+        <property name="time" type="java.util.Date">
+            <column name="time"/>
+        </property>
+    </class>
+</hibernate-mapping>

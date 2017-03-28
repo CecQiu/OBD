@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-9-7 16:22:15 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping  package="com.hgsoft.carowner.entity">
+    <class name="ObdState" table="obd_state">
+        <id name="id" type="string">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <property name="obdSn" type="string">
+            <column name="obdSn" length="50">
+                <comment>obd设备号</comment>
+            </column>
+        </property>
+        <property name="startupSwitch" type="string">
+            <column name="startupSwitch" length="1"></column>
+        </property>
+        <property name="shakeSwitch" type="string">
+            <column name="shakeSwitch" length="1"></column>
+        </property>
+        <property name="voltageSwitch" type="string">
+            <column name="voltageSwitch" length="1"></column>
+        </property>
+        <property name="engineTempSwitch" type="string">
+            <column name="engineTempSwitch" length="1"></column>
+        </property>
+        <property name="carfaultSwitch" type="string">
+            <column name="carfaultSwitch" length="1"></column>
+        </property>
+        <property name="overspeedSwitch" type="string">
+            <column name="overspeedSwitch" length="1"></column>
+        </property>
+        <property name="efenceSwitch" type="string">
+            <column name="efenceSwitch" length="1"></column>
+        </property>
+        <property name="backupSwitch" type="string">
+            <column name="backupSwitch" length="1"></column>
+        </property>
+        <property name="wifiState" type="string">
+            <column name="wifiState" length="1"></column>
+        </property>
+        <property name="gpsState" type="string">
+            <column name="gpsState" length="1"></column>
+        </property>
+        <property name="safetySwitch" type="string">
+            <column name="safetySwitch" length="1"></column>
+        </property>
+        <property name="rapidSpeedChangeSwitch" type="string">
+            <column name="rapidSpeedChangeSwitch" length="1"></column>
+        </property>
+        <property name="idlingSwitch" type="string">
+            <column name="idlingSwitch" length="1"></column>
+        </property>
+        <property name="fatigueDriveSwitch" type="string">
+            <column name="fatigueDriveSwitch" length="1"></column>
+        </property>
+        
+        <property name="wakeup" type="string">
+            <column name="wakeup" length="1"></column>
+        </property>
+        <property name="createTime" type="timestamp">
+            <column name="create_time" ></column>
+        </property>
+        <property name="updateTime" type="timestamp">
+            <column name="update_time"></column>
+        </property>
+        <property name="valid" type="string">
+            <column name="valid" length="1"></column>
+        </property>
+    </class>
+</hibernate-mapping>

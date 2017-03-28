@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping  package="com.hgsoft.carowner.entity">
+    <class name="OBDServerParams" table="obd_server_params">
+       <id name="id" type="java.lang.String">
+            <column name="id" not-null="true"/>
+            <generator class="assigned" />
+        </id>
+        <property name="obdSn" type="string">
+            <column name="obdSn" length="50"/>
+        </property>
+        <property name="ipAddress" type="string">
+            <column name="ipAddress"/>
+        </property>
+        <property name="port" type="integer">
+            <column name="ipPort"/>
+        </property>
+        <property name="APN" type="string">
+            <column name="APN"/>
+        </property>
+        <property name="type" type="integer">
+            <column name="type"/>
+        </property>
+        <property name="createTime" type="java.util.Date">
+            <column name="createTime">
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

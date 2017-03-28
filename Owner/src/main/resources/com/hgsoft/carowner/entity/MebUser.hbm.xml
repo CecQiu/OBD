@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-7-29 17:16:29 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping package="com.hgsoft.carowner.entity">
+    <class name="MebUser" table="meb_user">
+        <id name="regUserId" type="string">
+            <column name="regUserId" length="32" />
+            <generator class="assigned" />
+        </id>
+        <property name="mobileNumber" type="string">
+            <column name="mobileNumber" length="20" unique="true">
+                <comment>&#211;&#195;&#187;&#167;&#202;&#214;&#187;&#250;&#186;&#197;</comment>
+            </column>
+        </property>
+        <property name="obdSN" type="string">
+            <column name="obdSN" length="20">
+                <comment>&#214;&#199;&#196;&#220;&#186;&#208;&#188;&#164;&#187;&#238;&#194;&#235;&#163;&#168;SN&#194;&#235;&#163;&#169;</comment>
+            </column>
+        </property>
+        <property name="carId" type="string">
+            <column name="carId" length="20">
+                <comment>关联车辆id号</comment>
+            </column>
+        </property>
+        <property name="license" type="string">
+            <column name="license" length="20">
+                <comment>&#179;&#181;&#197;&#198;&#186;&#197;</comment>
+            </column>
+        </property>
+        <property name="name" type="string">
+            <column name="name" length="20">
+                <comment>&#213;&#230;&#202;&#181;&#208;&#213;&#195;&#251;</comment>
+            </column>
+        </property>
+        <property name="sex" type="string">
+            <column name="sex" length="2">
+                <comment>&#208;&#212;&#177;&#240;</comment>
+            </column>
+        </property>
+        <property name="userType" type="java.lang.Integer">
+            <column name="userType">
+                <comment>&#215;&#162;&#178;&#225;&#205;&#190;&#190;&#182;&#163;&#168;1&#177;&#237;&#202;&#190;APP&#163;&#169;</comment>
+            </column>
+        </property>
+        <property name="password" type="string">
+            <column name="password" length="32">
+                <comment>
+                &#163;&#168;&#191;&#201;&#191;&#213;&#212;&#164;&#193;&#244;&#163;&#172;&#211;&#195;&#211;&#218;&#179;&#181;&#214;&#247;&#205;&#168;&#198;&#189;&#204;&#168;&#178;&#187;&#211;&#195;&#209;&#233;&#214;&#164;&#195;&#220;&#194;&#235;&#163;&#169;&#181;&#199;&#194;&#188;&#195;&#220;&#194;&#235;&#163;&#172;MD5&#188;&#211;&#195;&#220;&#184;&#241;&#202;&#189;&#163;&#186;&#195;&#220;&#194;&#235;_&#195;&#220;&#179;&#215;&#163;&#168;~(Gb,.|[]HA*NT&#163;&#169;</comment>
+            </column>
+        </property>
+        <property name="payPassword" type="string">
+            <column name="payPassword" length="32">
+                <comment>
+                &#163;&#168;&#191;&#201;&#191;&#213;&#212;&#164;&#193;&#244;&#163;&#172;&#211;&#195;&#211;&#218;&#179;&#181;&#214;&#247;&#205;&#168;&#198;&#189;&#204;&#168;&#178;&#187;&#211;&#195;&#209;&#233;&#214;&#164;&#195;&#220;&#194;&#235;&#163;&#169;&#214;&#167;&#184;&#182;&#195;&#220;&#194;&#235;&#163;&#172;MD5&#188;&#211;&#195;&#220;&#184;&#241;&#202;&#189;&#163;&#186;&#195;&#220;&#194;&#235;_&#195;&#220;&#179;&#215;&#163;&#168;~(Gb,.|[]HA*NT&#163;&#169;</comment>
+            </column>
+        </property>
+        <property name="createTime" type="java.util.Date">
+            <column name="create_time" />
+        </property>
+        <property name="updateTime" type="java.util.Date">
+            <column name="update_time" />
+        </property>
+        <property name="valid" type="string">
+            <column name="valid" length="1">
+                <comment>
+                &#211;&#195;&#187;&#167;&#215;&#180;&#204;&#172;&#202;&#199;&#183;&#241;&#211;&#208;&#208;&#167;&#163;&#186;1&#211;&#208;&#208;&#167;&#163;&#172;0&#206;&#222;&#208;&#167;</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

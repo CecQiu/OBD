@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-9-7 16:22:15 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping  package="com.hgsoft.carowner.entity">
+    <class name="FOTA" table="fota">
+        <id name="id" type="string">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <property name="obdSn" type="string">
+            <column name="obdSn" length="20"></column>
+        </property>
+        <property name="version" type="string">
+            <column name="version" length="50"></column>
+        </property>
+        <property name="fileName" type="string">
+            <column name="fileName" length="100"></column>
+        </property>
+        <property name="address" type="string">
+            <column name="address" length="20"></column>
+        </property>
+        <property name="port" type="java.lang.Integer">
+            <column name="port"></column>
+        </property>
+        
+        <property name="username" type="string">
+            <column name="username" length="20"></column>
+        </property>
+        
+        <property name="password" type="string">
+            <column name="password" length="20"></column>
+        </property>
+        
+        <property name="createTime" type="timestamp">
+            <column name="createTime"></column>
+        </property>
+    </class>
+</hibernate-mapping>

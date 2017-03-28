@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-7-29 17:16:29 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping package="com.hgsoft.carowner.entity">
+    <class name="FenceHis" table="fence_his">
+        <id name="id" type="string">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <property name="originId" type="string">
+            <column name="originId"/>
+        </property>
+        <property name="obdSn" type="string">
+            <column name="obdSn" length="50" not-null="true">
+                <comment>设备号;</comment>
+            </column>
+        </property>
+        <property name="type" type="java.lang.Integer">
+            <column name="type"></column>
+        </property>
+        <property name="alert" type="java.lang.Integer">
+            <column name="alert"></column>
+        </property>
+        <property name="areaNum" type="java.lang.Integer">
+            <column name="areaNum"></column>
+        </property>
+        <property name="points" type="string">
+            <column name="points"></column>
+        </property> 
+        <property name="timerType" type="java.lang.Integer">
+            <column name="timerType"/>
+        </property>
+         <property name="dayWeek" type="string">
+            <column name="dayWeek"/>
+        </property>
+        <property name="startDate" type="java.util.Date">
+            <column name="startDate" />
+        </property>
+         <property name="startTime" type="java.util.Date">
+            <column name="startTime" />
+        </property>
+        <property name="endTime" type="java.util.Date">
+            <column name="endTime" />
+        </property>
+         <property name="endDate" type="java.util.Date">
+            <column name="endDate" />
+        </property>
+        <property name="createTime" type="java.util.Date">
+            <column name="create_time" />
+        </property>
+        <property name="updateTime" type="java.util.Date">
+            <column name="update_time" />
+        </property>
+        <property name="valid" type="java.lang.Integer">
+            <column name="valid" />
+        </property>
+        <property name="delTime" type="java.util.Date">
+            <column name="del_time" />
+        </property>
+    </class>
+</hibernate-mapping>

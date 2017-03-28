@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-7-29 17:16:29 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping package="com.hgsoft.carowner.entity">
+    <class name="CarInfo" table="car_info">
+        <id name="carId" type="string">
+            <column name="carId" length="10" />
+            <generator class="assigned" />
+        </id>
+        <property name="obdSn" type="string">
+            <column name="obdSN" length="20" not-null="true">
+                <comment>&#214;&#199;&#196;&#220;&#186;&#208;&#188;&#164;&#187;&#238;&#194;&#235;</comment>
+            </column>
+        </property>
+        <property name="regUserId" type="string">
+            <column name="regUserId" length="50" not-null="true">
+                <comment>对应用户</comment>
+            </column>
+        </property>
+        <property name="license" type="string">
+            <column name="license" length="20">
+                <comment>&#179;&#181;&#197;&#198;&#186;&#197;</comment>
+            </column>
+        </property>
+        <property name="carState" type="string">
+            <column name="carState" length="2">
+                <comment>&#179;&#181;&#193;&#190;&#215;&#180;&#204;&#172;</comment>
+            </column>
+        </property>
+        <property name="cartypeId" type="string">
+            <column name="cartype_id" length="10">
+                <comment>&#179;&#181;&#208;&#205;&#208;&#197;&#207;&#162;</comment>
+            </column>
+        </property> 
+        <property name="isfault" type="java.lang.Integer">
+            <column name="isfault" />
+        </property>
+        <property name="createTime" type="java.util.Date">
+            <column name="create_time" />
+        </property>
+        <property name="updateTime" type="java.util.Date">
+            <column name="update_time" />
+        </property>
+        <property name="valid" type="string">
+            <column name="valid" />
+        </property>
+    </class>
+</hibernate-mapping>

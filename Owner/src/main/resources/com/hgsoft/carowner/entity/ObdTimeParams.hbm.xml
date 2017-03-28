@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping  package="com.hgsoft.carowner.entity">
+    <class name="OBDTimeParams" table="obd_time_params">
+        <id name="id" type="java.lang.String">
+            <column name="id" not-null="true"/>
+            <generator class="assigned" />
+        </id>
+        <property name="obdSn" type="string">
+            <column name="obdSn" length="50"/>
+        </property>
+        <property name="sleepTime" type="integer">
+            <column name="sleepTime"/>
+        </property>
+        <property name="wifiUseTime" type="integer">
+            <column name="wifiUseTime"/>
+        </property>
+        <property name="gpsCollectDataTime" type="integer">
+            <column name="gpsCollectDataTime"/>
+        </property>
+        <property name="positionDataTime" type="integer">
+            <column name="positionDataTime"/>
+        </property>
+        <property name="obdOnlineTime" type="integer">
+            <column name="obdOnlineTime"/>
+        </property>
+        <property name="obdOfflineTime" type="integer">
+            <column name="obdOfflineTime"/>
+        </property>
+        <property name="obdOffDataTime" type="integer">
+            <column name="obdOffDataTime"/>
+        </property>
+        <property name="requestAGPSTime" type="integer">
+            <column name="requestAGPSTime"/>
+        </property>
+        <property name="createTime" type="java.util.Date">
+            <column name="createTime">
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

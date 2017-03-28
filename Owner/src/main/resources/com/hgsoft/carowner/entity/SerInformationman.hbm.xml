@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-8-4 15:02:56 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping package="com.hgsoft.carowner.entity">
+    <class name="SerInformationman" table="ser_informationman">
+        <id name="infoId" type="java.lang.Integer">
+            <column name="infoId" />
+            <generator class="identity" />
+        </id>
+        <property name="infoType" type="string">
+            <column name="infoType" length="2">
+                <comment>&#215;&#202;&#209;&#182;&#192;&#224;&#208;&#205;</comment>
+            </column>
+        </property>
+        <property name="infoTitle" type="string">
+            <column name="infoTitle" length="100">
+                <comment>&#177;&#234;&#204;&#226;</comment>
+            </column>
+        </property>
+        <property name="summary" type="string">
+            <column name="summary" length="50">
+                <comment>&#213;&#170;&#210;&#170;</comment>
+            </column>
+        </property>
+        <property name="infoDetail" type="string">
+            <column name="infoDetail">
+                <comment>&#215;&#202;&#209;&#182;&#196;&#218;&#200;&#221;</comment>
+            </column>
+        </property>
+        <property name="infoTime" type="string">
+            <column name="infoTime" length="30">
+                <comment>&#202;&#177;&#188;&#228;</comment>
+            </column>
+        </property>
+        <property name="infoShow" type="string">
+            <column name="infoShow" length="1">
+                <comment>&#202;&#199;&#183;&#241;&#207;&#212;&#202;&#190; 0 &#207;&#212;&#202;&#190; 1 &#178;&#187;&#207;&#212;&#202;&#190;</comment>
+            </column>
+        </property>
+        <property name="infoRedShow" type="string">
+            <column name="infoRedShow" length="1">
+                <comment>&#202;&#199;&#183;&#241;&#177;&#234;&#204;&#226;&#188;&#211;&#186;&#236; 0 &#188;&#211; 1&#178;&#187;&#188;&#211;</comment>
+            </column>
+        </property>
+         <property name="regUserId" type="string">
+            <column name="regUserId" length="10">              
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

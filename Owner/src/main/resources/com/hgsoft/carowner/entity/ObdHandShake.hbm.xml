@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.hgsoft.carowner.entity.ObdHandShake" table="obd_handshake">
+        <id name="id" type="java.lang.String">
+            <column name="id" not-null="true"/>
+            <generator class="assigned" />
+        </id>
+        <property name="obdSn" type="java.lang.String">
+            <column name="obdSn" not-null="true"/>
+        </property>
+        <property name="firmwareVersion" type="java.lang.String">
+            <column name="firmwareVersion" not-null="true"/>
+        </property>
+        <property name="wakeUp" type="java.lang.Integer">
+            <column name="wakeUp"/>
+        </property>
+        <property name="gpsModule" type="java.lang.Integer">
+            <column name="gpsModule"/>
+        </property>
+        <property name="efprom" type="java.lang.Integer">
+            <column name="efprom"/>
+        </property>
+         <property name="accelerator3D" type="java.lang.Integer">
+            <column name="accelerator3D"/>
+        </property>
+        <property name="hasOffData" type="java.lang.Integer">
+            <column name="hasOffData"/>
+        </property>
+        <property name="wifiSet" type="java.lang.Integer">
+            <column name="wifiSet"/>
+        </property>
+        <property name="gpsSet" type="java.lang.Integer">
+            <column name="gpsSet"/>
+        </property>
+        <property name="gpsDataFormat" type="java.lang.Integer">
+            <column name="gpsDataFormat"/>
+        </property>
+        <property name="offHeartSet" type="java.lang.Integer">
+            <column name="offHeartSet"/>
+        </property>
+        <property name="regNet" type="java.lang.String">
+            <column name="regNet"/>
+        </property>
+        <property name="netSinal" type="java.lang.Integer">
+            <column name="netSinal"/>
+        </property>
+          <property name="ecu" type="java.lang.String">
+            <column name="ecu"/>
+        </property>
+        <property name="carFaultCode" type="java.lang.Integer">
+            <column name="carFaultCode"/>
+        </property>
+        <property name="voltStatus" type="java.lang.Integer">
+            <column name="voltStatus"/>
+        </property>
+        <property name="engineWater" type="java.lang.Integer">
+            <column name="engineWater"/>
+        </property>
+        <property name="startMode" type="java.lang.Integer">
+            <column name="startMode"/>
+        </property>
+        <property name="illegalStartSet" type="java.lang.Integer">
+            <column name="illegalStartSet"/>
+        </property>
+        <property name="illegalShockSet" type="java.lang.Integer">
+            <column name="illegalShockSet"/>
+        </property>
+        <property name="voltUnusualSet" type="java.lang.Integer">
+            <column name="voltUnusualSet"/>
+        </property>
+        <property name="engineWaterWarnSet" type="java.lang.Integer">
+            <column name="engineWaterWarnSet"/>
+        </property>
+        <property name="carWarnSet" type="java.lang.Integer">
+            <column name="carWarnSet"/>
+        </property>
+        <property name="overSpeedWarnSet" type="java.lang.Integer">
+            <column name="overSpeedWarnSet"/>
+        </property>
+        <property name="efenceWarnSet" type="java.lang.Integer">
+            <column name="efenceWarnSet"/>
+        </property>
+        <property name="vinCode" type="java.lang.String">
+            <column name="vinCode"/>
+        </property>
+        <property name="lastSleep" type="java.lang.String">
+            <column name="lastSleep"/>
+        </property>
+        <property name="volt" type="double">
+            <column name="volt"/>
+        </property>
+           <property name="voltType" type="java.lang.Integer">
+            <column name="voltType" default="0"/>
+        </property>
+        <property name="flowCounter" type="long">
+            <column name="flowCounter"/>
+        </property>
+        <property name="upElectricNo" type="java.lang.Integer">
+            <column name="upElectricNo"/>
+        </property>
+        <property name="lastUpElectricNo" type="java.lang.Integer">
+            <column name="lastUpElectricNo"/>
+        </property>
+        <property name="message" type="java.lang.String">
+            <column name="message"/>
+        </property>
+        <property name="createTime" type="java.util.Date">
+            <column name="createTime"/>
+        </property>
+    </class>
+</hibernate-mapping>
